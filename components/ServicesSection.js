@@ -1,103 +1,167 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import Image from "next/image";
+
 const services = [
   {
     title: "Residential",
-    text: "Complete cleaning solutions for homes, apartments, and private residences.",
-    scene: "living"
+    text: "Tailored deep cleaning solutions for your private sanctuary.",
+    image: "/images/service 1.png",
+    alt: "Residential cleaning service interior"
   },
   {
     title: "Commercial",
-    text: "Tailored hygiene support for offices, workspaces, and large facilities.",
-    scene: "industrial"
+    text: "Maintaining peak productivity through pristine workspaces.",
+    image: "/images/service 2.png",
+    alt: "Commercial cleaning service facility"
   },
   {
     title: "Post Construction",
-    text: "Detailed dust removal and finishing cleanup for newly completed sites.",
-    scene: "plant"
+    text: "Specialized heavy-duty sanitation for complex facilities.",
+    image: "/images/service 3.png",
+    alt: "Post construction cleaning facility"
+  },
+  {
+    title: "Deep Cleaning",
+    text: "Restoring shared work environments with detailed, routine care.",
+    image: "/images/service 2.png",
+    alt: "Office cleaning service facility"
+  },
+  {
+    title: "Matterass Cleaning",
+    text: "Fresh, welcoming interiors prepared before you settle in.",
+    image: "/images/service 1.png",
+    alt: "Move in cleaning residential interior"
+  },
+  {
+    title: "Pressure Washing",
+    text: "Powerful cleaning support for demanding technical environments.",
+    image: "/images/service 3.png",
+    alt: "Industrial sanitization facility"
   }
 ];
 
-function ServiceArt({ scene }) {
-  const shared =
-    "relative h-56 overflow-hidden rounded-[1.8rem] bg-[#d7edf3] shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]";
-
-  if (scene === "living") {
-    return (
-      <div className={shared}>
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,_#d4edf4_0%,_#b7d8df_100%)]" />
-        <div className="absolute left-5 top-5 h-28 w-36 rounded-2xl bg-[linear-gradient(180deg,_#1b3350_0%,_#1b86af_100%)] shadow-lg" />
-        <div className="absolute right-5 top-4 h-18 w-18 rounded-full border-[10px] border-white/75" />
-        <div className="absolute bottom-6 left-5 h-14 w-28 rounded-t-[2rem] rounded-b-xl bg-[#825f43]" />
-        <div className="absolute bottom-4 right-6 h-24 w-14 rounded-t-[1rem] bg-[#f5f1ea]" />
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-[linear-gradient(180deg,_#e0dfd6_0%,_#cac6ba_100%)]" />
-      </div>
-    );
-  }
-
-  if (scene === "industrial") {
-    return (
-      <div className={shared}>
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,_#8dc3ef_0%,_#d9c9b2_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-[#aa8968]" />
-        <div className="absolute bottom-16 left-4 right-4 h-3 bg-[#695744]" />
-        <div className="absolute bottom-19 left-7 h-28 w-5 bg-[#715f4d]" />
-        <div className="absolute bottom-19 left-16 h-32 w-5 bg-[#715f4d]" />
-        <div className="absolute bottom-19 left-24 h-24 w-5 bg-[#715f4d]" />
-        <div className="absolute bottom-19 right-20 h-34 w-4 bg-[#756250]" />
-        <div className="absolute bottom-19 right-10 h-38 w-4 bg-[#756250]" />
-      </div>
-    );
-  }
-
+function ServiceCard({ service, isFeatured }) {
   return (
-    <div className={shared}>
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,_#d8edf9_0%,_#f2f6fa_100%)]" />
-      <div className="absolute bottom-0 left-0 right-0 h-14 bg-[#f5f7fb]" />
-      <div className="absolute bottom-12 left-8 h-36 w-12 rounded-t-[1.2rem] bg-[#9aa5b3]" />
-      <div className="absolute bottom-12 left-24 h-44 w-14 rounded-t-[1.2rem] bg-[#8d99aa]" />
-      <div className="absolute bottom-12 left-16 h-7 w-24 bg-[#aeb8c5]" />
-      <div className="absolute bottom-12 right-8 h-40 w-16 rounded-t-[1.2rem] bg-[#7d8aa0]" />
-      <div className="absolute bottom-12 right-20 h-8 w-18 bg-[#a7b4c6]" />
-    </div>
+    <article
+      className={[
+        "rounded-[2.3rem] border border-white/85 bg-white/90 p-5 shadow-[0_24px_50px_rgba(84,141,155,0.12)] backdrop-blur transition duration-300",
+        isFeatured ? "lg:-translate-y-3 lg:scale-[1.02]" : "lg:translate-y-6"
+      ].join(" ")}
+    >
+      <div
+        className={[
+          "relative overflow-hidden rounded-[2rem]",
+          isFeatured
+            ? "h-[18rem] sm:h-[20rem] lg:h-[22rem]"
+            : "h-[15rem] sm:h-[17rem] lg:h-[19rem]"
+        ].join(" ")}
+      >
+        <Image
+          src={service.image}
+          alt={service.alt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 33vw"
+        />
+      </div>
+
+      <div className="px-3 pb-4 pt-6">
+        <h3 className="text-30px font-bold leading-tight text-[#18253a]">
+          {service.title}
+        </h3>
+        <p className="mt-4 max-w-[18rem] text-[1.05rem] leading-8 text-[#8c99a5]">
+          {service.text}
+        </p>
+      </div>
+    </article>
   );
 }
 
 export default function ServicesSection() {
+  const [startIndex, setStartIndex] = useState(0);
+  const maxStartIndex = Math.max(0, services.length - 3);
+
+  const visibleServices = useMemo(
+    () => services.slice(startIndex, startIndex + 3),
+    [startIndex]
+  );
+
+  function goPrevious() {
+    setStartIndex((current) => (current === 0 ? maxStartIndex : current - 1));
+  }
+
+  function goNext() {
+    setStartIndex((current) => (current === maxStartIndex ? 0 : current + 1));
+  }
+
   return (
     <section
       id="services"
-      className="relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8"
+      className="relative overflow-hidden px-4 py-18 sm:px-6 lg:px-8"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(97,210,233,0.23),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(214,245,222,0.9),_transparent_28%),linear-gradient(180deg,_#effbff_0%,_#eaf8f6_100%)]" />
-      <div className="relative mx-auto max-w-6xl">
-        <p className="text-sm uppercase tracking-[0.34em] text-[#7da3a8]">
-          Our services
-        </p>
-        <div className="mt-4 flex items-end justify-between gap-6">
-          <h2 className="max-w-xl text-4xl font-medium leading-tight text-[#17232b] sm:text-5xl">
+
+      <div className="relative mx-auto max-w-[1220px]">
+        <div>
+          <p className="text-sm font-light uppercase tracking-[0.4em] text-[#617b84]">
+            Our Services
+          </p>
+          <h2 className="mt-7 max-w-[34rem] text-5xl font-light leading-[1.1] tracking-[-0.03em] text-[#13233b] sm:text-6xl lg:text-[4rem]">
             Elevated Hygiene For Every Space
           </h2>
-          <div className="hidden h-14 w-14 items-center justify-center rounded-full bg-[#23a8cb] text-2xl text-white shadow-[0_16px_30px_rgba(35,168,203,0.28)] md:flex">
+        </div>
+
+        <div className="relative py-6 lg:pt-12 lg:pb-6">
+          <button
+            type="button"
+            onClick={goPrevious}
+            aria-label="Previous services"
+            className="absolute left-[-1.5rem] top-1/2 z-20 hidden h-13 w-13 -translate-y-1/2 items-center justify-center rounded-full border border-white/70 bg-white/85 text-2xl text-[#2fb4da] shadow-[0_12px_24px_rgba(47,180,218,0.16)] transition hover:bg-white xl:flex"
+          >
+            ←
+          </button>
+
+          <button
+            type="button"
+            onClick={goNext}
+            aria-label="Next services"
+            className="absolute right-[-1.5rem] top-1/2 z-20 hidden h-16 w-16 -translate-y-1/2 items-center justify-center rounded-full bg-[#2fb4da] text-3xl text-white shadow-[0_16px_28px_rgba(47,180,218,0.32)] transition hover:bg-[#1ea6cd] xl:flex"
+          >
             →
+          </button>
+
+          <div className="overflow-hidden pt-4 pb-2 lg:pt-8">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1fr_0.9fr] lg:items-start">
+              {visibleServices.map((service, index) => (
+                <ServiceCard
+                  key={`${service.title}-${startIndex}-${index}`}
+                  service={service}
+                  isFeatured={index === 1}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => (
-            <article
-              key={service.title}
-              className="rounded-[2rem] border border-white/80 bg-white/78 p-4 shadow-[0_22px_45px_rgba(53,127,155,0.12)] backdrop-blur"
-            >
-              <ServiceArt scene={service.scene} />
-              <div className="px-2 pb-3 pt-5">
-                <h3 className="text-xl font-semibold text-[#19232a]">
-                  {service.title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-[#728891]">
-                  {service.text}
-                </p>
-              </div>
-            </article>
-          ))}
+        <div className="mt-8 flex items-center justify-center gap-3 xl:hidden">
+          <button
+            type="button"
+            onClick={goPrevious}
+            aria-label="Previous services"
+            className="flex h-14 w-14 items-center justify-center rounded-full border border-white/70 bg-white/85 text-2xl text-[#2fb4da] shadow-[0_10px_20px_rgba(47,180,218,0.14)]"
+          >
+            ←
+          </button>
+          <button
+            type="button"
+            onClick={goNext}
+            aria-label="Next services"
+            className="flex h-14 w-14 items-center justify-center rounded-full bg-[#2fb4da] text-2xl text-white shadow-[0_14px_26px_rgba(47,180,218,0.28)]"
+          >
+            →
+          </button>
         </div>
       </div>
     </section>
