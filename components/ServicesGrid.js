@@ -34,7 +34,7 @@ export default function ServicesGrid() {
                   {service.text}
                 </p>
                 <Link
-                  href="#contact"
+                  href={service.href}
                   className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#0b8768] transition hover:text-[#0a745b]"
                 >
                   View Service
