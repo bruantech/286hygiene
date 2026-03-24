@@ -1,4 +1,5 @@
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import {
   getLocalBusinessJsonLd,
   getPageMetadata,
@@ -58,17 +59,18 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessJsonLd)
+            __html: JSON.stringify(localBusinessJsonLd),
           }}
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteJsonLd)
+            __html: JSON.stringify(websiteJsonLd),
           }}
         />
         {children}
       </body>
+      <SpeedInsights />
     </html>
   );
 }

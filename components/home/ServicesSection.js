@@ -109,7 +109,7 @@ export default function ServicesSection() {
           </div>
         </div>
 
-        <div className="mt-8 flex items-center justify-center gap-3 xl:hidden">
+        <div className="mt-8 hidden items-center justify-center gap-3 md:flex xl:hidden">
           <button
             type="button"
             onClick={goPrevious}
