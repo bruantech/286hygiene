@@ -11,7 +11,7 @@ const steps = [
     text: "We assess the cleaning requirements. Every sanctuary is unique; our experts conduct a tactile and visual audit to identify sensitive surfaces and high-traffic focal points.",
     image: "/images/service 1.png",
     alt: "Inspection of cleaning surfaces before work begins",
-    icon: Search
+    icon: Search,
   },
   {
     number: "02",
@@ -20,7 +20,7 @@ const steps = [
     text: "Each project receives a tailored care plan. We select the right tools, map the workflow, and prepare safe solutions that match the material, traffic level, and hygiene goal of the space.",
     image: "/images/service 2.png",
     alt: "Cleaning tools and materials prepared for a job",
-    icon: ClipboardCheck
+    icon: ClipboardCheck,
   },
   {
     number: "03",
@@ -29,7 +29,7 @@ const steps = [
     text: "Our trained team carries out the process with discipline and attention to detail. We focus on high-touch zones, embedded buildup, and surface-safe treatment to deliver a visibly refreshed result.",
     image: "/images/team.png",
     alt: "Professional cleaners carrying out a detailed cleaning service",
-    icon: Sparkles
+    icon: Sparkles,
   },
   {
     number: "04",
@@ -38,8 +38,8 @@ const steps = [
     text: "Before we sign off, we review the finished space to confirm standards have been met. This last pass helps ensure consistency, presentation, and peace of mind for every client.",
     image: "/images/heroimg.png",
     alt: "Final review of a cleaned and polished space",
-    icon: ShieldCheck
-  }
+    icon: ShieldCheck,
+  },
 ];
 
 export default function CleaningProcessSection() {
@@ -50,7 +50,55 @@ export default function CleaningProcessSection() {
   return (
     <section className="bg-[#d8eef6] px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-xl font-extrabold uppercase tracking-[0.28em] text-[#0b8768]">
+            Cleaning Process
+          </h2>
+        </div>
+
+        <div className="mt-12 grid gap-8 md:hidden">
+          {steps.map((item) => {
+            const MobileIcon = item.icon;
+
+            return (
+              <article
+                key={item.number}
+                className="overflow-hidden rounded-[1.75rem] bg-white shadow-[0_28px_70px_rgba(73,121,135,0.2)]"
+              >
+                <div className="relative">
+                  <div
+                    className="min-h-64 bg-cover bg-center"
+                    style={{ backgroundImage: `url('${item.image}')` }}
+                    role="img"
+                    aria-label={item.alt}
+                  />
+                  <div className="absolute left-4 top-4 inline-flex h-12 min-w-12 items-center justify-center rounded-full bg-white/92 px-3 text-sm font-black text-[#17233b] shadow-[0_10px_22px_rgba(23,35,59,0.16)]">
+                    {item.number}
+                  </div>
+                </div>
+
+                <div className="px-6 py-8 sm:px-8">
+                  <div className="mt-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#edf5f2] text-[#0b8768]">
+                    <MobileIcon
+                      className="h-6 w-6"
+                      strokeWidth={2.2}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <h2 className="mt-6 text-3xl font-black text-[#17233b] sm:text-4xl">
+                    {item.title}
+                  </h2>
+                  <p className="mt-4 text-base leading-8 text-[#516770] sm:text-lg">
+                    {item.text}
+                  </p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        <div className="mt-12 hidden flex-wrap justify-center gap-3 md:flex">
           {steps.map((item, index) => {
             const isActive = index === activeStep;
 
@@ -63,7 +111,7 @@ export default function CleaningProcessSection() {
                   "rounded-xl px-6 py-4 text-sm font-extrabold shadow-[0_14px_28px_rgba(16,82,97,0.08)] transition",
                   isActive
                     ? "bg-[#0b8768] text-white shadow-[0_18px_34px_rgba(11,135,104,0.26)]"
-                    : "bg-white text-[#17222b] hover:bg-[#f6fbfb]"
+                    : "bg-white text-[#17222b] hover:bg-[#f6fbfb]",
                 ].join(" ")}
               >
                 {item.number}. {item.label}
@@ -72,11 +120,15 @@ export default function CleaningProcessSection() {
           })}
         </div>
 
-        <article className="mt-12 overflow-hidden  bg-white shadow-[0_28px_70px_rgba(73,121,135,0.2)]">
+        <article className="mt-12 hidden overflow-hidden bg-white shadow-[0_28px_70px_rgba(73,121,135,0.2)] md:block">
           <div className="grid lg:grid-cols-[1.2fr_0.88fr]">
             <div className="px-8 py-10 sm:px-10 sm:py-12 lg:px-10 lg:py-14">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#edf5f2] text-[#0b8768]">
-                <Icon className="h-6 w-6" strokeWidth={2.2} aria-hidden="true" />
+                <Icon
+                  className="h-6 w-6"
+                  strokeWidth={2.2}
+                  aria-hidden="true"
+                />
               </div>
 
               <h2 className="mt-8 text-4xl font-black text-[#17233b] sm:text-5xl">
@@ -87,12 +139,14 @@ export default function CleaningProcessSection() {
               </p>
             </div>
 
-            <div
-              className="min-h-72 bg-cover bg-center"
-              style={{ backgroundImage: `url('${step.image}')` }}
-              role="img"
-              aria-label={step.alt}
-            />
+            <div className="relative min-h-[24rem] lg:min-h-[34rem]">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url('${step.image}')` }}
+                role="img"
+                aria-label={step.alt}
+              />
+            </div>
           </div>
         </article>
       </div>
