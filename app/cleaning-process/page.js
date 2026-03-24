@@ -1,7 +1,15 @@
-import CallToAction from "@/components/CallToAction";
-import CleaningProcessSection from "@/components/CleaningProcessSection";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import CleaningProcessSection from "../../components/cleaning-process/CleaningProcessSection";
+import CallToAction from "../../components/shared/CallToAction";
+import Footer from "../../components/shared/Footer";
+import Header from "../../components/shared/Header";
+import { getPageMetadata } from "../../lib/siteData";
+
+export const metadata = getPageMetadata({
+  title: "Our Cleaning Process",
+  description:
+    "See how 286 Hygiene approaches inspection, planning, cleaning, and final review to deliver consistent hygiene results.",
+  path: "/cleaning-process"
+});
 
 export default function CleaningProcessPage() {
   return (

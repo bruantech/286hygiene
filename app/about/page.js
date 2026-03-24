@@ -1,9 +1,17 @@
-import AboutTimeline from "@/components/AboutTimeline";
-import CallToAction from "@/components/CallToAction";
-import CoreValuesSection from "@/components/CoreValuesSection";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import PageHero from "@/components/PageHero";
+import AboutTimeline from "../../components/about/AboutTimeline";
+import CoreValuesSection from "../../components/about/CoreValuesSection";
+import CallToAction from "../../components/shared/CallToAction";
+import Footer from "../../components/shared/Footer";
+import Header from "../../components/shared/Header";
+import PageHero from "../../components/shared/PageHero";
+import { getPageMetadata } from "../../lib/siteData";
+
+export const metadata = getPageMetadata({
+  title: "About 286 Hygiene",
+  description:
+    "Learn about 286 Hygiene, our mission, our values, and our commitment to delivering reliable cleaning and hygiene services in Nigeria.",
+  path: "/about"
+});
 
 export default function AboutPage() {
   return (

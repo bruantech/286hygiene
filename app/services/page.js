@@ -1,8 +1,16 @@
-import CallToAction from "@/components/CallToAction";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import PageHero from "@/components/PageHero";
-import ServicesGrid from "@/components/ServicesGrid";
+import ServicesGrid from "../../components/services/shared/ServicesGrid";
+import CallToAction from "../../components/shared/CallToAction";
+import Footer from "../../components/shared/Footer";
+import Header from "../../components/shared/Header";
+import PageHero from "../../components/shared/PageHero";
+import { getPageMetadata } from "../../lib/siteData";
+
+export const metadata = getPageMetadata({
+  title: "Cleaning Services",
+  description:
+    "Browse professional cleaning, fumigation, and specialist hygiene services from 286 Hygiene in Lagos, Nigeria.",
+  path: "/services"
+});
 
 export default function ServicesPage() {
   return (

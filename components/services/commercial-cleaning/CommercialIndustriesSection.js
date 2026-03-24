@@ -21,7 +21,7 @@ const industries = [
 export default function CommercialIndustriesSection() {
   return (
     <section className="relative overflow-hidden px-4 py-22 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(97,210,233,0.12),_transparent_24%),radial-gradient(circle_at_bottom_right,_rgba(214,245,222,0.5),_transparent_24%),linear-gradient(180deg,_#f8fcfc_0%,_#eef5f5_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(97,210,233,0.12),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(214,245,222,0.5),transparent_24%),linear-gradient(180deg,#f8fcfc_0%,#eef5f5_100%)]" />
 
       <div className="relative mx-auto max-w-6xl">
         <div className="mx-auto max-w-3xl text-left sm:text-center">
@@ -42,7 +42,7 @@ export default function CommercialIndustriesSection() {
                 key={industry.title}
                 className="group rounded-[1.6rem] border border-white/75 bg-white/90 px-4 py-6 text-center shadow-[0_16px_34px_rgba(97,129,141,0.09)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_rgba(61,117,130,0.14)]"
               >
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[linear-gradient(180deg,_#edf8f5_0%,_#e0f2ec_100%)] text-[#0b8768] shadow-[0_12px_24px_rgba(11,135,104,0.12)] transition group-hover:bg-[#0b8768] group-hover:text-white">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[linear-gradient(180deg,#edf8f5_0%,#e0f2ec_100%)] text-[#0b8768] shadow-[0_12px_24px_rgba(11,135,104,0.12)] transition group-hover:bg-[#0b8768] group-hover:text-white">
                   <Icon className="h-6 w-6" strokeWidth={2.1} aria-hidden="true" />
                 </div>
                 <p className="mt-5 text-sm font-bold uppercase tracking-[0.08em] text-[#17222b]">

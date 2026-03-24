@@ -1,9 +1,17 @@
-import CallToAction from "@/components/CallToAction";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import HowServicesWork from "@/components/HowServicesWork";
-import PageHero from "@/components/PageHero";
-import ResidentialIncludesSection from "@/components/ResidentialIncludesSection";
+import ResidentialIncludesSection from "../../../components/services/residential-cleaning/ResidentialIncludesSection";
+import CallToAction from "../../../components/shared/CallToAction";
+import Footer from "../../../components/shared/Footer";
+import Header from "../../../components/shared/Header";
+import HowServicesWork from "../../../components/shared/HowServicesWork";
+import PageHero from "../../../components/shared/PageHero";
+import { getPageMetadata } from "../../../lib/siteData";
+
+export const metadata = getPageMetadata({
+  title: "Residential Cleaning Services",
+  description:
+    "Keep your home clean, healthy, and comfortable with residential cleaning services from 286 Hygiene in Lagos, Nigeria.",
+  path: "/services/residential-cleaning"
+});
 
 export default function ResidentialCleaningPage() {
   return (

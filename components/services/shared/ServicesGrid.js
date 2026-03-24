@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
 
-import { services } from "@/components/servicesData";
+import { services } from "./servicesData";
 
 export default function ServicesGrid() {
   return (

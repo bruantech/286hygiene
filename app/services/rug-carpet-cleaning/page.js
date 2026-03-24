@@ -1,9 +1,17 @@
-import CallToAction from "@/components/CallToAction";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import HowServicesWork from "@/components/HowServicesWork";
-import PageHero from "@/components/PageHero";
-import RugCarpetCleaningIncludesSection from "@/components/RugCarpetCleaningIncludesSection";
+import RugCarpetCleaningIncludesSection from "../../../components/services/rug-carpet-cleaning/RugCarpetCleaningIncludesSection";
+import CallToAction from "../../../components/shared/CallToAction";
+import Footer from "../../../components/shared/Footer";
+import Header from "../../../components/shared/Header";
+import HowServicesWork from "../../../components/shared/HowServicesWork";
+import PageHero from "../../../components/shared/PageHero";
+import { getPageMetadata } from "../../../lib/siteData";
+
+export const metadata = getPageMetadata({
+  title: "Rug and Carpet Cleaning Services",
+  description:
+    "Restore rugs and carpets with professional cleaning services from 286 Hygiene for fresher, healthier interiors in Lagos, Nigeria.",
+  path: "/services/rug-carpet-cleaning"
+});
 
 export default function RugCarpetCleaningPage() {
   return (

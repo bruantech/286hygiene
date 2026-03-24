@@ -41,7 +41,7 @@ const pestItems = [
 
 export default function FumigationEliminatesSection() {
   return (
-    <section className="bg-[linear-gradient(180deg,_#31a6c9_0%,_#2fa9cf_100%)] px-4 py-20 text-white sm:px-6 lg:px-8">
+    <section className="bg-[linear-gradient(180deg,#31a6c9_0%,#2fa9cf_100%)] px-4 py-20 text-white sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <h2 className="text-center text-3xl font-black uppercase ">
           Our Fumigation Service Eliminates

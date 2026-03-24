@@ -1,22 +1,26 @@
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { siteConfig } from "../../lib/siteData";
 
 const contactItems = [
   {
     title: "Direct Inquiry",
-    text: "+1 23456789",
+    text: siteConfig.phoneDisplay,
     detail: "Available 24/7",
+    href: `tel:${siteConfig.phone}`,
     icon: Phone
   },
   {
     title: "Customer service",
-    text: "concierge@286hygiene.com",
+    text: siteConfig.email,
     detail: "",
+    href: `mailto:${siteConfig.email}`,
     icon: Mail
   },
   {
-    title: "Our Head Quaters",
-    text: "286 Emerald Plaza, Suite 400",
-    detail: "Design District, PH 10013",
+    title: "Our Headquarters",
+    text: siteConfig.addressLocality,
+    detail: "Serving clients across Lagos, Nigeria",
+    href: siteConfig.mapUrl,
     icon: MapPin
   }
 ];
@@ -32,7 +36,7 @@ const serviceOptions = [
 export default function ContactPageSection() {
   return (
     <>
-      <section className="relative overflow-hidden px-4 pb-12 pt-0 sm:px-6 lg:px-8">
+      {/* <section className="relative overflow-hidden px-4 pb-12 pt-0 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl overflow-hidden bg-white">
           <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
             <div className="relative px-6 py-18 sm:px-10 lg:px-12 lg:py-26">
@@ -59,7 +63,7 @@ export default function ContactPageSection() {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
@@ -69,8 +73,9 @@ export default function ContactPageSection() {
                 const Icon = item.icon;
 
                 return (
-                  <article
+                  <a
                     key={item.title}
+                    href={item.href}
                     className="flex items-start gap-4"
                   >
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#dceae5] text-[#0b8768]">
@@ -89,13 +94,13 @@ export default function ContactPageSection() {
                         </p>
                       ) : null}
                     </div>
-                  </article>
+                  </a>
                 );
               })}
             </div>
 
             <article className="overflow-hidden rounded-[1.35rem] bg-[#cfe2de] shadow-[0_22px_50px_rgba(65,122,128,0.18)]">
-              <div className="flex min-h-[16rem] items-center justify-center bg-[radial-gradient(circle_at_50%_42%,_rgba(255,255,255,0.42),_transparent_14%),linear-gradient(180deg,_rgba(255,255,255,0.2)_0%,_rgba(166,195,191,0.36)_100%)]">
+              <div className="flex min-h-64 items-center justify-center bg-[radial-gradient(circle_at_50%_42%,rgba(255,255,255,0.42),transparent_14%),linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(166,195,191,0.36)_100%)]">
                 <MapPin
                   className="h-28 w-28 text-[#90a7a4]"
                   strokeWidth={1.4}
@@ -104,7 +109,7 @@ export default function ContactPageSection() {
               </div>
               <div className="p-4">
                 <a
-                  href="https://maps.google.com/?q=Lagos,Nigeria"
+                  href={siteConfig.mapUrl}
                   className="flex items-center justify-between rounded-2xl bg-white px-4 py-4 text-sm font-bold text-[#0b8768] shadow-[0_12px_30px_rgba(68,115,121,0.12)] transition hover:bg-[#f8fcfb]"
                 >
                   View on Google Maps
@@ -156,7 +161,7 @@ export default function ContactPageSection() {
                   </span>
                   <input
                     type="text"
-                    placeholder="Lagos, Nigeria"
+                    placeholder={`${siteConfig.addressLocality}, Nigeria`}
                     className="mt-4 w-full border-0 border-b border-[#dce7e5] bg-transparent px-0 pb-3 text-lg text-[#17233b] placeholder:text-[#c8d4dc] focus:border-[#0b8768] focus:outline-none"
                   />
                 </label>

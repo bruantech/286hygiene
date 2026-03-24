@@ -41,7 +41,7 @@ const values = [
 
 export default function CoreValuesSection() {
   return (
-    <section className="mt-12 bg-[linear-gradient(180deg,_#32a7ca_0%,_#29add3_100%)] px-4 py-18 text-white sm:px-6 lg:px-8">
+    <section className="mt-12 bg-[linear-gradient(180deg,#32a7ca_0%,#29add3_100%)] px-4 py-18 text-white sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <h2 className="text-center text-4xl font-black uppercase sm:text-5xl">
           Our Core Values

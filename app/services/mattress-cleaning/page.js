@@ -1,9 +1,17 @@
-import CallToAction from "@/components/CallToAction";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import HowServicesWork from "@/components/HowServicesWork";
-import MattressCleaningServicesSection from "@/components/MattressCleaningServicesSection";
-import PageHero from "@/components/PageHero";
+import MattressCleaningServicesSection from "../../../components/services/mattress-cleaning/MattressCleaningServicesSection";
+import CallToAction from "../../../components/shared/CallToAction";
+import Footer from "../../../components/shared/Footer";
+import Header from "../../../components/shared/Header";
+import HowServicesWork from "../../../components/shared/HowServicesWork";
+import PageHero from "../../../components/shared/PageHero";
+import { getPageMetadata } from "../../../lib/siteData";
+
+export const metadata = getPageMetadata({
+  title: "Mattress Cleaning Services",
+  description:
+    "Refresh and sanitize your sleeping environment with professional mattress cleaning services from 286 Hygiene in Lagos, Nigeria.",
+  path: "/services/mattress-cleaning"
+});
 
 export default function MattressCleaningPage() {
   return (

@@ -1,9 +1,17 @@
-import CallToAction from "@/components/CallToAction";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import HowServicesWork from "@/components/HowServicesWork";
-import PageHero from "@/components/PageHero";
-import PressureWashingServicesSection from "@/components/PressureWashingServicesSection";
+import PressureWashingServicesSection from "../../../components/services/pressure-washing/PressureWashingServicesSection";
+import CallToAction from "../../../components/shared/CallToAction";
+import Footer from "../../../components/shared/Footer";
+import Header from "../../../components/shared/Header";
+import HowServicesWork from "../../../components/shared/HowServicesWork";
+import PageHero from "../../../components/shared/PageHero";
+import { getPageMetadata } from "../../../lib/siteData";
+
+export const metadata = getPageMetadata({
+  title: "Pressure Washing Services",
+  description:
+    "286 Hygiene offers pressure washing services to restore exterior surfaces, driveways, walls, and commercial fronts in Lagos, Nigeria.",
+  path: "/services/pressure-washing"
+});
 
 export default function PressureWashingPage() {
   return (

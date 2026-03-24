@@ -38,7 +38,7 @@ const serviceItems = [
 export default function CommercialIncludesSection() {
   return (
     <section className="relative overflow-hidden bg-[#f2f7f7] px-4 py-18 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(97,210,233,0.12),_transparent_24%),radial-gradient(circle_at_bottom_right,_rgba(214,245,222,0.52),_transparent_24%),linear-gradient(180deg,_#f7fbfb_0%,_#edf5f5_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(97,210,233,0.12),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(214,245,222,0.52),transparent_24%),linear-gradient(180deg,#f7fbfb_0%,#edf5f5_100%)]" />
 
       <div className="relative mx-auto max-w-6xl">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
@@ -72,9 +72,9 @@ export default function CommercialIncludesSection() {
                   item.wide ? "lg:col-span-2" : ""
                 ].join(" ")}
               >
-                <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-[2.4rem] bg-[linear-gradient(180deg,_rgba(231,246,242,0.75)_0%,_rgba(231,246,242,0)_100%)]" />
+                <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-[2.4rem] bg-[linear-gradient(180deg,rgba(231,246,242,0.75)_0%,rgba(231,246,242,0)_100%)]" />
 
-                <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(180deg,_#edf8f5_0%,_#e1f3ed_100%)] text-[#0b8768] shadow-[0_12px_24px_rgba(11,135,104,0.12)] transition group-hover:bg-[#0b8768] group-hover:text-white">
+                <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(180deg,#edf8f5_0%,#e1f3ed_100%)] text-[#0b8768] shadow-[0_12px_24px_rgba(11,135,104,0.12)] transition group-hover:bg-[#0b8768] group-hover:text-white">
                   <Icon className="h-6 w-6" strokeWidth={2.2} aria-hidden="true" />
                 </div>
 
@@ -82,7 +82,7 @@ export default function CommercialIncludesSection() {
                   {item.title}
                 </h3>
 
-                <p className="relative mt-4 max-w-[34rem] text-sm leading-7 text-[#697e87]">
+                <p className="relative mt-4 max-w-136 text-sm leading-7 text-[#697e87]">
                   {item.text}
                 </p>
 

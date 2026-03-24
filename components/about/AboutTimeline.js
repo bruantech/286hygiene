@@ -40,7 +40,7 @@ function TimelineCard({ item, isImage }) {
           alt={item.alt}
           width={900}
           height={700}
-          className="h-[16rem] w-full object-cover"
+          className="h-64 w-full object-cover"
         />
       </div>
     );
@@ -64,7 +64,7 @@ function TimelineCard({ item, isImage }) {
       <p
         className={[
           "mt-5 text-base leading-8 text-[#5f767f]",
-          isLeft ? "max-w-[38rem] lg:ml-auto lg:mr-0" : "max-w-[32rem] lg:ml-0 lg:mr-auto"
+          isLeft ? "max-w-152 lg:ml-auto lg:mr-0" : "max-w-lg lg:ml-0 lg:mr-auto"
         ].join(" ")}
       >
         {item.text}
@@ -77,7 +77,7 @@ export default function AboutTimeline() {
   return (
     <section className="px-4 py-12 sm:px-6 lg:px-8">
       <div className="relative mx-auto max-w-6xl">
-        <div className="absolute bottom-0 left-1/2 top-0 hidden w-[3px] -translate-x-1/2 bg-[#0b8768] lg:block" />
+        <div className="absolute bottom-0 left-1/2 top-0 hidden w-0.75 -translate-x-1/2 bg-[#0b8768] lg:block" />
 
         <div className="space-y-14 lg:space-y-20">
           {timelineItems.map((item, index) => {

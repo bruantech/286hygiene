@@ -83,7 +83,7 @@ export default function BlogArticleSection() {
               ))}
             </div>
 
-            <div className="mt-12 overflow-hidden rounded-[2rem] shadow-[0_22px_60px_rgba(59,107,120,0.16)]">
+            <div className="mt-12 overflow-hidden rounded-4xl shadow-[0_22px_60px_rgba(59,107,120,0.16)]">
               <Image
                 src="/images/service 3.png"
                 alt="A wellness-inspired arrangement with aromatic oils"

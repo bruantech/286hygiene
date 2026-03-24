@@ -1,9 +1,25 @@
 import Image from "next/image";
+import { siteConfig } from "../../lib/siteData";
 
 const links = {
-  Company: ["About Us", "Our Process", "Testimonials"],
-  Services: ["Home Cleaning", "Office Cleaning", "Fumigation"],
-  Contact: ["+234 800 000 2860", "info@286hygiene.com", "Lagos, Nigeria"]
+  Company: [
+    { label: "About Us", href: "/about" },
+    { label: "Our Process", href: "/cleaning-process" },
+    { label: "Contact", href: "/contact" }
+  ],
+  Services: [
+    { label: "Home Cleaning", href: "/services/residential-cleaning" },
+    { label: "Office Cleaning", href: "/services/commercial-cleaning" },
+    { label: "Fumigation", href: "/services/fumigation-pest-control" }
+  ],
+  Contact: [
+    { label: siteConfig.phoneDisplay, href: `tel:${siteConfig.phone}` },
+    { label: siteConfig.email, href: `mailto:${siteConfig.email}` },
+    {
+      label: `${siteConfig.addressLocality}, ${siteConfig.addressCountry === "NG" ? "Nigeria" : siteConfig.addressCountry}`,
+      href: siteConfig.mapUrl
+    }
+  ]
 };
 
 export default function Footer() {
@@ -26,7 +42,7 @@ export default function Footer() {
           </div>
           <p className="mt-5 max-w-xs text-sm leading-7 text-[#6c828b]">
             We deliver safe, reliable, and efficient cleaning services for
-            every kind of space.
+            every kind of space across Lagos, Nigeria.
           </p>
         </div>
 
@@ -37,7 +53,14 @@ export default function Footer() {
             </h3>
             <ul className="mt-5 space-y-3 text-sm text-[#6f858d]">
               {items.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className="transition hover:text-[#0b8768]"
+                  >
+                    {item.label}
+                  </a>
+                </li>
               ))}
             </ul>
           </div>
@@ -45,7 +68,7 @@ export default function Footer() {
       </div>
 
       <div className="mx-auto mt-12 max-w-6xl border-t border-[#dbeceb] pt-6 text-center text-sm text-[#8ba0a4]">
-        {"\u00A9"} 2026 286 Hygiene. All rights reserved.
+        {"\u00A9"} 2026 {siteConfig.name}. All rights reserved.
       </div>
     </footer>
   );

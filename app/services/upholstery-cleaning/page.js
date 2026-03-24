@@ -1,9 +1,17 @@
-import CallToAction from "@/components/CallToAction";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import HowServicesWork from "@/components/HowServicesWork";
-import PageHero from "@/components/PageHero";
-import UpholsteryCleaningServicesSection from "@/components/UpholsteryCleaningServicesSection";
+import UpholsteryCleaningServicesSection from "../../../components/services/upholstery-cleaning/UpholsteryCleaningServicesSection";
+import CallToAction from "../../../components/shared/CallToAction";
+import Footer from "../../../components/shared/Footer";
+import Header from "../../../components/shared/Header";
+import HowServicesWork from "../../../components/shared/HowServicesWork";
+import PageHero from "../../../components/shared/PageHero";
+import { getPageMetadata } from "../../../lib/siteData";
+
+export const metadata = getPageMetadata({
+  title: "Upholstery Cleaning Services",
+  description:
+    "Protect and refresh sofas, chairs, and upholstered surfaces with professional upholstery cleaning services from 286 Hygiene in Lagos, Nigeria.",
+  path: "/services/upholstery-cleaning"
+});
 
 export default function UpholsteryCleaningPage() {
   return (

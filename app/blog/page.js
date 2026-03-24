@@ -1,8 +1,16 @@
-import BlogArticleSection from "@/components/BlogArticleSection";
-import CallToAction from "@/components/CallToAction";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import PageHero from "@/components/PageHero";
+import BlogArticleSection from "../../components/blog/BlogArticleSection";
+import CallToAction from "../../components/shared/CallToAction";
+import Footer from "../../components/shared/Footer";
+import Header from "../../components/shared/Header";
+import PageHero from "../../components/shared/PageHero";
+import { getPageMetadata } from "../../lib/siteData";
+
+export const metadata = getPageMetadata({
+  title: "Cleaning Tips and Hygiene Blog",
+  description:
+    "Read cleaning tips, hygiene guidance, and maintenance advice from 286 Hygiene for homes, offices, and commercial spaces.",
+  path: "/blog"
+});
 
 export default function BlogPage() {
   return (

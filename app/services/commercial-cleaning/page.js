@@ -1,10 +1,18 @@
-import CallToAction from "@/components/CallToAction";
-import CommercialIncludesSection from "@/components/CommercialIncludesSection";
-import CommercialIndustriesSection from "@/components/CommercialIndustriesSection";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import HowServicesWork from "@/components/HowServicesWork";
-import PageHero from "@/components/PageHero";
+import CommercialIncludesSection from "../../../components/services/commercial-cleaning/CommercialIncludesSection";
+import CommercialIndustriesSection from "../../../components/services/commercial-cleaning/CommercialIndustriesSection";
+import CallToAction from "../../../components/shared/CallToAction";
+import Footer from "../../../components/shared/Footer";
+import Header from "../../../components/shared/Header";
+import HowServicesWork from "../../../components/shared/HowServicesWork";
+import PageHero from "../../../components/shared/PageHero";
+import { getPageMetadata } from "../../../lib/siteData";
+
+export const metadata = getPageMetadata({
+  title: "Commercial Cleaning Services",
+  description:
+    "Professional commercial cleaning services for offices, retail stores, schools, hotels, restaurants, and other business spaces in Lagos, Nigeria.",
+  path: "/services/commercial-cleaning"
+});
 
 export default function CommercialCleaningPage() {
   return (

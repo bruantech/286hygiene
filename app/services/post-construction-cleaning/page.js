@@ -1,9 +1,17 @@
-import CallToAction from "@/components/CallToAction";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import HowServicesWork from "@/components/HowServicesWork";
-import PageHero from "@/components/PageHero";
-import PostConstructionHighlightsSection from "@/components/PostConstructionHighlightsSection";
+import PostConstructionHighlightsSection from "../../../components/services/post-construction-cleaning/PostConstructionHighlightsSection";
+import CallToAction from "../../../components/shared/CallToAction";
+import Footer from "../../../components/shared/Footer";
+import Header from "../../../components/shared/Header";
+import HowServicesWork from "../../../components/shared/HowServicesWork";
+import PageHero from "../../../components/shared/PageHero";
+import { getPageMetadata } from "../../../lib/siteData";
+
+export const metadata = getPageMetadata({
+  title: "Post-Construction Cleaning",
+  description:
+    "Prepare newly built or renovated spaces for use with detailed post-construction cleaning services from 286 Hygiene.",
+  path: "/services/post-construction-cleaning"
+});
 
 export default function PostConstructionCleaningPage() {
   return (

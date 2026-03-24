@@ -72,23 +72,23 @@ export default function CleaningProcessSection() {
           })}
         </div>
 
-        <article className="mt-12 overflow-hidden rounded-[2rem] bg-white shadow-[0_28px_70px_rgba(73,121,135,0.2)]">
+        <article className="mt-12 overflow-hidden rounded-4xl bg-white shadow-[0_28px_70px_rgba(73,121,135,0.2)]">
           <div className="grid lg:grid-cols-[1.2fr_0.88fr]">
             <div className="px-8 py-10 sm:px-10 sm:py-12 lg:px-10 lg:py-14">
-              <div className="flex h-14 w-14 items-center justify-center rounded-[1rem] bg-[#edf5f2] text-[#0b8768]">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#edf5f2] text-[#0b8768]">
                 <Icon className="h-6 w-6" strokeWidth={2.2} aria-hidden="true" />
               </div>
 
               <h2 className="mt-8 text-4xl font-black text-[#17233b] sm:text-5xl">
                 {step.title}
               </h2>
-              <p className="mt-6 max-w-[30rem] text-lg leading-9 text-[#516770]">
+              <p className="mt-6 max-w-120 text-lg leading-9 text-[#516770]">
                 {step.text}
               </p>
             </div>
 
             <div
-              className="min-h-[18rem] bg-cover bg-center"
+              className="min-h-72 bg-cover bg-center"
               style={{ backgroundImage: `url('${step.image}')` }}
               role="img"
               aria-label={step.alt}

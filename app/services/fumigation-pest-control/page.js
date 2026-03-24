@@ -1,9 +1,17 @@
-import CallToAction from "@/components/CallToAction";
-import Footer from "@/components/Footer";
-import FumigationEliminatesSection from "@/components/FumigationEliminatesSection";
-import Header from "@/components/Header";
-import HowServicesWork from "@/components/HowServicesWork";
-import PageHero from "@/components/PageHero";
+import FumigationEliminatesSection from "../../../components/services/fumigation-pest-control/FumigationEliminatesSection";
+import CallToAction from "../../../components/shared/CallToAction";
+import Footer from "../../../components/shared/Footer";
+import Header from "../../../components/shared/Header";
+import HowServicesWork from "../../../components/shared/HowServicesWork";
+import PageHero from "../../../components/shared/PageHero";
+import { getPageMetadata } from "../../../lib/siteData";
+
+export const metadata = getPageMetadata({
+  title: "Fumigation and Pest Control",
+  description:
+    "286 Hygiene provides fumigation and pest control services in Lagos for mosquitoes, cockroaches, rodents, bed bugs, and termites.",
+  path: "/services/fumigation-pest-control"
+});
 
 export default function FumigationPestControlPage() {
   return (

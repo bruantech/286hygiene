@@ -49,7 +49,7 @@ const serviceItems = [
 export default function ResidentialIncludesSection() {
   return (
     <section className="relative overflow-hidden bg-[#f2f7f7] px-4 py-18 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(97,210,233,0.12),_transparent_24%),radial-gradient(circle_at_bottom_right,_rgba(214,245,222,0.55),_transparent_22%),linear-gradient(180deg,_#f6fbfb_0%,_#edf4f4_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(97,210,233,0.12),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(214,245,222,0.55),transparent_22%),linear-gradient(180deg,#f6fbfb_0%,#edf4f4_100%)]" />
 
       <div className="relative mx-auto max-w-6xl">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
@@ -80,9 +80,9 @@ export default function ResidentialIncludesSection() {
                 key={item.title}
                 className="group relative overflow-hidden rounded-[1.7rem] border border-white/70 bg-white/92 px-6 py-6 shadow-[0_18px_36px_rgba(97,129,141,0.1)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_rgba(61,117,130,0.14)]"
               >
-                <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-[2.5rem] bg-[linear-gradient(180deg,_rgba(231,246,242,0.75)_0%,_rgba(231,246,242,0)_100%)]" />
+                <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-[2.5rem] bg-[linear-gradient(180deg,rgba(231,246,242,0.75)_0%,rgba(231,246,242,0)_100%)]" />
 
-                <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(180deg,_#edf8f5_0%,_#e1f3ed_100%)] text-[#0b8768] shadow-[0_12px_24px_rgba(11,135,104,0.12)] transition group-hover:bg-[#0b8768] group-hover:text-white">
+                <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(180deg,#edf8f5_0%,#e1f3ed_100%)] text-[#0b8768] shadow-[0_12px_24px_rgba(11,135,104,0.12)] transition group-hover:bg-[#0b8768] group-hover:text-white">
                   <Icon
                     className="h-6 w-6"
                     strokeWidth={2.2}

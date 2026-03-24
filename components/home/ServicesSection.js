@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { services } from "@/components/servicesData";
+import { services } from "../services/shared/servicesData";
 
 function ServiceCard({ service, isFeatured }) {
   return (
