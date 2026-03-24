@@ -37,13 +37,13 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="mt-10 flex gap-4">
+          <div className="mt-10 flex justify-center sm:justify-start gap-4">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="min-w-[118px] rounded-[18px] border border-white/75 bg-white/85 px-5 py-4 shadow-[0_16px_40px_rgba(44,146,178,0.12)]"
+                className="rounded-[18px] border border-white/75 bg-white/85 px-5 py-4 shadow-[0_16px_40px_rgba(44,146,178,0.12)]"
               >
-                <div className="text-2xl font-extrabold text-[#22a9cb]">
+                <div className="text-xl sm:text-2xl font-extrabold text-[#22a9cb]">
                   {stat.value}
                 </div>
                 <div className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-[#7d949b]">

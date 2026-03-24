@@ -1,26 +1,6 @@
 import Image from "next/image";
-import { siteConfig } from "../../lib/siteData";
-
-const links = {
-  Company: [
-    { label: "About Us", href: "/about" },
-    { label: "Our Process", href: "/cleaning-process" },
-    { label: "Contact", href: "/contact" }
-  ],
-  Services: [
-    { label: "Home Cleaning", href: "/services/residential-cleaning" },
-    { label: "Office Cleaning", href: "/services/commercial-cleaning" },
-    { label: "Fumigation", href: "/services/fumigation-pest-control" }
-  ],
-  Contact: [
-    { label: siteConfig.phoneDisplay, href: `tel:${siteConfig.phone}` },
-    { label: siteConfig.email, href: `mailto:${siteConfig.email}` },
-    {
-      label: `${siteConfig.addressLocality}, ${siteConfig.addressCountry === "NG" ? "Nigeria" : siteConfig.addressCountry}`,
-      href: siteConfig.mapUrl
-    }
-  ]
-};
+import Link from "next/link";
+import { footerLinkGroups, siteConfig } from "../../lib/siteData";
 
 export default function Footer() {
   return (
@@ -46,7 +26,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {Object.entries(links).map(([group, items]) => (
+        {Object.entries(footerLinkGroups).map(([group, items]) => (
           <div key={group}>
             <h3 className="text-sm font-extrabold uppercase tracking-[0.2em] text-[#17222b]">
               {group}
@@ -54,12 +34,12 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-[#6f858d]">
               {items.map((item) => (
                 <li key={item.label}>
-                  <a
+                  <Link
                     href={item.href}
                     className="transition hover:text-[#0b8768]"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -60,7 +60,7 @@ export default function CleaningProcessSection() {
                 type="button"
                 onClick={() => setActiveStep(index)}
                 className={[
-                  "rounded-full px-6 py-4 text-sm font-extrabold shadow-[0_14px_28px_rgba(16,82,97,0.08)] transition",
+                  "rounded-xl px-6 py-4 text-sm font-extrabold shadow-[0_14px_28px_rgba(16,82,97,0.08)] transition",
                   isActive
                     ? "bg-[#0b8768] text-white shadow-[0_18px_34px_rgba(11,135,104,0.26)]"
                     : "bg-white text-[#17222b] hover:bg-[#f6fbfb]"
@@ -72,7 +72,7 @@ export default function CleaningProcessSection() {
           })}
         </div>
 
-        <article className="mt-12 overflow-hidden rounded-4xl bg-white shadow-[0_28px_70px_rgba(73,121,135,0.2)]">
+        <article className="mt-12 overflow-hidden  bg-white shadow-[0_28px_70px_rgba(73,121,135,0.2)]">
           <div className="grid lg:grid-cols-[1.2fr_0.88fr]">
             <div className="px-8 py-10 sm:px-10 sm:py-12 lg:px-10 lg:py-14">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#edf5f2] text-[#0b8768]">
