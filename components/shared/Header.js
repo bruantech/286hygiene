@@ -2,12 +2,35 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import { primaryNavItems } from "../../lib/siteData";
+import { primaryNavItems, siteConfig } from "../../lib/siteData";
+import StaggeredMenu from "./StaggeredMenu";
 
 export default function Header() {
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const mobileMenuItems = primaryNavItems.map((item) => ({
+    label: item.label,
+    ariaLabel: `Go to ${item.label}`,
+    link: item.href,
+    children: item.children?.map((child) => ({
+      label: child.label,
+      ariaLabel: `Go to ${child.label}`,
+      link: child.href
+    }))
+  }));
+
+  const mobileQuickLinks = [
+    {
+      label: "Call",
+      link: `tel:${siteConfig.phone}`
+    },
+    {
+      label: "Email",
+      link: `mailto:${siteConfig.email}`
+    },
+    {
+      label: "Contact",
+      link: "/contact"
+    }
+  ];
 
   return (
     <header className="sticky top-0 z-50 bg-white backdrop-blur">
@@ -70,72 +93,23 @@ export default function Header() {
             Get Started
           </Link>
 
-          <button
-            type="button"
-            aria-expanded={isMobileNavOpen}
-            aria-controls="mobile-nav"
-            aria-label={isMobileNavOpen ? "Close navigation menu" : "Open navigation menu"}
-            onClick={() => setIsMobileNavOpen((open) => !open)}
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#dbeceb] bg-white text-[#17222b] shadow-[0_14px_28px_rgba(18,34,43,0.08)] transition hover:border-[#c8e4df] hover:text-[#0b8768] md:hidden"
-          >
-            {isMobileNavOpen ? (
-              <X className="h-5 w-5" aria-hidden="true" />
-            ) : (
-              <Menu className="h-5 w-5" aria-hidden="true" />
-            )}
-          </button>
+          <div className="md:hidden">
+            <StaggeredMenu
+              items={mobileMenuItems}
+              socialItems={mobileQuickLinks}
+              displaySocials
+              displayItemNumbering
+              position="right"
+              colors={["#dff4ef", "#9bd7c8", "#0b8768"]}
+              menuButtonColor="#17222b"
+              openMenuButtonColor="#17222b"
+              changeMenuColorOnOpen={false}
+              logoUrl={siteConfig.logo}
+              showLogo={false}
+              accentColor="#0b8768"
+            />
+          </div>
         </div>
-      </div>
-
-      <div
-        id="mobile-nav"
-        className={[
-          "border-t border-[#eef5f3] px-4 py-3 md:hidden sm:px-6",
-          isMobileNavOpen ? "block" : "hidden"
-        ].join(" ")}
-      >
-        <nav className="mx-auto flex max-w-6xl flex-col gap-2 text-sm font-medium text-[#607984]">
-          {primaryNavItems.map((item) =>
-            item.children ? (
-              <details
-                key={item.label}
-                className="rounded-[1.25rem] border border-[#dbeceb] bg-[#fbfdfc] px-4 py-3"
-              >
-                <summary className="cursor-pointer list-none text-[#17222b]">
-                  {item.label}
-                </summary>
-                <div className="mt-3 grid gap-2 border-t border-[#e6efed] pt-3">
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      onClick={() => setIsMobileNavOpen(false)}
-                      className="rounded-xl px-3 py-2 transition hover:bg-[#f3f9f7] hover:text-[#0b8768]"
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              </details>
-            ) : (
-              <Link
-                key={item.label}
-                href={item.href}
-                onClick={() => setIsMobileNavOpen(false)}
-                className="rounded-[1.25rem] border border-[#dbeceb] bg-[#fbfdfc] px-4 py-3 transition hover:text-[#0a8199]"
-              >
-                {item.label}
-              </Link>
-            )
-          )}
-          <Link
-            href="/contact"
-            onClick={() => setIsMobileNavOpen(false)}
-            className="mt-2 inline-flex items-center justify-center rounded-[1.25rem] bg-[#0b8768] px-4 py-3 text-sm font-semibold text-white shadow-[0_14px_28px_rgba(11,135,104,0.2)] transition hover:bg-[#0a7a5f]"
-          >
-            Get Started
-          </Link>
-        </nav>
       </div>
     </header>
   );
