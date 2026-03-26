@@ -13,6 +13,7 @@ export default function ServiceCard({
   return (
     <Link
       href={service.href}
+      scroll={false}
       className={[
         "group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/75 bg-white/88 p-4 shadow-[0_20px_45px_rgba(68,133,149,0.1)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(43,115,133,0.16)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0b8768] focus-visible:ring-offset-4",
         className

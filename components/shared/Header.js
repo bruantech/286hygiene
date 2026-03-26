@@ -49,9 +49,9 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white backdrop-blur">
+    <header className="sticky font-bold top-0 z-50 bg-white backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" scroll={false} className="flex items-center gap-3">
           <div className="flex h-16 w-16 items-center justify-center">
             <Image
               src="/images/logo.png"
@@ -65,45 +65,22 @@ export default function Header() {
         </Link>
 
         <nav className="hidden uppercase items-center gap-8 text-sm font-medium text-[#607984] md:flex">
-          {primaryNavItems.map((item) =>
-            item.children ? (
-              <div key={item.label} className="group relative">
-                <Link
-                  href={item.href}
-                  className="flex items-center gap-2 transition hover:text-[#0a8199]"
-                >
-                  {item.label}
-                  <span className="text-xs text-[#8ba0a4]">+</span>
-                </Link>
-                <div className="invisible absolute left-0 top-full z-20 mt-3 w-72 translate-y-2 rounded-[1.5rem] border border-[#dbeceb] bg-white p-3 opacity-0 shadow-[0_24px_60px_rgba(18,32,43,0.12)] transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                  <div className="grid gap-1">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="rounded-2xl px-4 py-3 text-sm text-[#607984] transition hover:bg-[#f3f9f7] hover:text-[#0b8768]"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="transition hover:text-[#0a8199]"
-              >
-                {item.label}
-              </Link>
-            )
-          )}
+          {primaryNavItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              scroll={false}
+              className="transition hover:text-[#0a8199]"
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
+            scroll={false}
             className="hidden rounded-full bg-[#0b8768] px-5 py-3 text-sm font-semibold !text-white shadow-[0_14px_28px_rgba(11,135,104,0.28)] transition hover:bg-[#0a7a5f] md:inline-flex"
           >
             Get Started

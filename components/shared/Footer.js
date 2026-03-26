@@ -1,8 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Instagram, Mail, Phone } from "lucide-react";
 import { footerLinkGroups, siteConfig } from "../../lib/siteData";
 
 export default function Footer() {
+  const getFooterIcon = (label) => {
+    if (label === "Instagram") {
+      return <Instagram className="h-4 w-4" strokeWidth={2} aria-hidden="true" />;
+    }
+
+    if (label === siteConfig.email) {
+      return <Mail className="h-4 w-4" strokeWidth={2} aria-hidden="true" />;
+    }
+
+    if (label === siteConfig.phoneDisplay) {
+      return <Phone className="h-4 w-4" strokeWidth={2} aria-hidden="true" />;
+    }
+
+    return null;
+  };
+
   return (
     <footer
       id="contact"
@@ -36,8 +53,10 @@ export default function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="transition hover:text-[#0b8768]"
+                    scroll={false}
+                    className="inline-flex items-center gap-2 transition hover:text-[#0b8768]"
                   >
+                    {getFooterIcon(item.label)}
                     {item.label}
                   </Link>
                 </li>

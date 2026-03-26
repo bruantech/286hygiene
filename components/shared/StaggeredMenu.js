@@ -35,6 +35,7 @@ function MenuItemLink({ item, className, onClick, children }) {
   return (
     <Link
       href={item.link}
+      scroll={false}
       onClick={onClick}
       className={className}
       aria-label={item.ariaLabel}

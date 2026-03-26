@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { getBookingMessage } from "../../lib/contactBooking";
 import { siteConfig } from "../../lib/siteData";
 
@@ -26,6 +26,13 @@ const contactItems = [
     detail: "Serving clients across Lagos, Nigeria",
     href: siteConfig.mapUrl,
     icon: MapPin
+  },
+  {
+    title: "Instagram",
+    text: "@286_hygiene",
+    detail: "Follow our latest work and updates",
+    href: siteConfig.instagramUrl,
+    icon: Instagram
   }
 ];
 
