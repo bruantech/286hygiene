@@ -64,7 +64,7 @@ export default function Header() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-[#607984] md:flex">
+        <nav className="hidden uppercase items-center gap-8 text-sm font-medium text-[#607984] md:flex">
           {primaryNavItems.map((item) =>
             item.children ? (
               <div key={item.label} className="group relative">

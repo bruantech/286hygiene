@@ -1,46 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import ServiceCard from "../services/shared/ServiceCard";
 import { services } from "../services/shared/servicesData";
-
-function ServiceCard({ service, isFeatured }) {
-  return (
-    <article
-      className={[
-        "rounded-[2.3rem] border border-white/85 bg-white/90 p-5 shadow-[0_24px_50px_rgba(84,141,155,0.12)] backdrop-blur transition duration-300",
-        isFeatured ? "lg:-translate-y-3 lg:scale-[1.02]" : "lg:translate-y-6"
-      ].join(" ")}
-    >
-      <div
-        className={[
-          "relative overflow-hidden rounded-[2rem]",
-          isFeatured
-            ? "h-[18rem] sm:h-[20rem] lg:h-[22rem]"
-            : "h-[15rem] sm:h-[17rem] lg:h-[19rem]"
-        ].join(" ")}
-      >
-        <Image
-          src={service.image}
-          alt={service.alt}
-          fill
-          className="object-cover"
-          sizes="(max-width: 1024px) 100vw, 33vw"
-        />
-      </div>
-
-      <div className="px-3 pb-4 pt-6">
-        <h3 className="text-30px font-bold leading-tight text-[#18253a]">
-          {service.title}
-        </h3>
-        <p className="mt-4 max-w-[18rem] text-[1.05rem] leading-6 text-[#8c99a5]">
-          {service.text}
-        </p>
-      </div>
-    </article>
-  );
-}
 
 export default function ServicesSection() {
   const [startIndex, setStartIndex] = useState(0);
@@ -63,7 +26,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden px-4 py-18 sm:px-6 lg:px-8"
+      className="relative  overflow-hidden px-4 py-18 sm:px-6 lg:px-8"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(97,210,233,0.23),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(214,245,222,0.9),_transparent_28%),linear-gradient(180deg,_#effbff_0%,_#eaf8f6_100%)]" />
 
@@ -96,13 +59,19 @@ export default function ServicesSection() {
             <ChevronRight className="h-7 w-7" strokeWidth={2.4} aria-hidden="true" />
           </button>
 
-          <div className="overflow-hidden pt-4 pb-2 lg:pt-8">
+          <div className="overflow-hidden pt-4 pb-10 lg:pt-8">
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1fr_0.9fr] lg:items-start">
               {visibleServices.map((service, index) => (
                 <ServiceCard
                   key={`${service.title}-${startIndex}-${index}`}
                   service={service}
-                  isFeatured={index === 1}
+                  titleAs="h3"
+                  className={index === 1 ? "lg:-translate-y-3 lg:scale-[1.02]" : "lg:translate-y-6"}
+                  imageClassName={
+                    index === 1
+                      ? "h-[18rem] sm:h-[20rem] lg:h-[22rem]"
+                      : "h-[15rem] sm:h-[17rem] lg:h-[19rem]"
+                  }
                 />
               ))}
             </div>

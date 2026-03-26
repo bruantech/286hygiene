@@ -65,6 +65,7 @@ export default function StaggeredMenu({
 }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   const [expandedItems, setExpandedItems] = useState({});
 
   const openRef = useRef(false);
@@ -97,9 +98,14 @@ export default function StaggeredMenu({
       if (toggleBtnRef.current) {
         gsap.set(toggleBtnRef.current, { color: menuButtonColor });
       }
+
+      setIsReady(true);
     });
 
-    return () => ctx.revert();
+    return () => {
+      setIsReady(false);
+      ctx.revert();
+    };
   }, [menuButtonColor, position]);
 
   const buildOpenTimeline = useCallback(() => {
@@ -398,6 +404,7 @@ export default function StaggeredMenu({
         className="staggered-menu-wrapper pointer-events-none relative h-full w-full"
         style={accentColor ? { "--sm-accent": accentColor } : undefined}
         data-open={open || undefined}
+        data-ready={isReady || undefined}
       >
         <div
           ref={preLayersRef}
@@ -558,6 +565,12 @@ export default function StaggeredMenu({
         .staggered-menu-panel {
           right: 0;
           width: min(100vw, 28rem);
+          visibility: hidden;
+        }
+
+        .staggered-menu-wrapper[data-ready] .sm-prelayers,
+        .staggered-menu-wrapper[data-ready] .staggered-menu-panel {
+          visibility: visible;
         }
 
         .sm-scope .sm-prelayer {

@@ -31,8 +31,8 @@ export default function CleaningProcessPage() {
           titleClassName="text-3xl font-black leading-[1.02] text-white sm:text-5xl lg:text-6xl"
         />
 
-        <section className="px-4 mt-6 sm:mt-0 pb-12 sm:px-6 sm:pb-16 lg:px-8">
-          <div className="mx-auto grid max-w-6xl gap-3 lg:grid-cols-[1.15fr_0.85fr]">
+        <section className="px-4 mt-6 sm:mt-0 pb-4  sm:px-6 sm:pb-0 lg:px-8">
+          <div className="">
             <div className=" border border-white/70 bg-white/88 p-8 shadow-[0_28px_70px_rgba(55,124,147,0.12)] backdrop-blur sm:p-10">
               <div className="inline-flex rounded-full bg-[#e8f6f1] px-4 py-2 text-xs font-extrabold uppercase tracking-[0.24em] text-[#0b8768]">
                 Structured Delivery
@@ -49,7 +49,7 @@ export default function CleaningProcessPage() {
               </p>
             </div>
 
-            <div className="sm:grid gap-4 hidden sm:grid-cols-3 lg:grid-cols-1">
+            {/* <div className="sm:grid gap-4 hidden sm:grid-cols-3 lg:grid-cols-1">
               {[
                 {
                   value: "4 Stages",
@@ -76,7 +76,7 @@ export default function CleaningProcessPage() {
                   </p>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </section>
 
