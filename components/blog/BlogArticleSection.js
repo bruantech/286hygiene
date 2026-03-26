@@ -79,7 +79,7 @@ export default function BlogArticleSection() {
                       type="button"
                       onClick={() => setActiveTopicIndex(index)}
                       className={[
-                        "text-left text-sm leading-6 transition",
+                        "text-left text-sm cursor-pointer leading-6 transition",
                         isActive
                           ? "font-medium text-[#17222b]"
                           : "text-[#61757e] hover:text-[#17222b]",
@@ -102,7 +102,7 @@ export default function BlogArticleSection() {
               {activeTopic.title}
             </h1>
 
-            <div className="mt-10 space-y-10">
+            <div className="mt-10 space-y-2">
               {activeTopic.paragraphs.map((paragraph) => (
                 <p
                   key={paragraph}

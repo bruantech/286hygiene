@@ -60,11 +60,11 @@ export default function Hero() {
 
           <div className="relative overflow-hidden rounded-[2.8rem] bg-white/55 p-3 shadow-[0_30px_70px_rgba(54,134,159,0.22)]">
             <Image
-              src="/images/heroimg.png"
+              src="/images/hero.webp"
               alt="Cleaning professional wiping a surface"
               width={500}
               height={620}
-              className="h-auto w-full rounded-[2.2rem] rounded-tr-none object-cover rotate-2"
+              className="h-auto w-[420px] rounded-[2.2rem] rounded-tr-none object-cover rotate-2"
               priority
             />
           </div>

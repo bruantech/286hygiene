@@ -26,7 +26,7 @@ export default function CommercialCleaningPage() {
           animatedTitleSuffix="build stronger business impressions."
           animatedTitleInterval={2500}
           animatedTitleClassName="text-[#d9f7ff]"
-          backgroundImage="/images/heroimg.png"
+          backgroundImage="/images/commercialHero.png"
           alt="Commercial cleaning team at work"
           overlayClassName="bg-[linear-gradient(90deg,_rgba(37,168,201,0.78)_0%,_rgba(37,168,201,0.64)_45%,_rgba(37,168,201,0.34)_100%)]"
           sectionClassName="px-4 pb-10 pt-8 sm:px-6 lg:px-8"

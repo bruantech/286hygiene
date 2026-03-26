@@ -24,7 +24,7 @@ export default function ServicesPage() {
           animatedTitleSuffix="that stay hygienic."
           animatedTitleInterval={2600}
           animatedTitleClassName="text-[#d9f7ff]"
-          backgroundImage="/images/heroimg.png"
+          backgroundImage="/images/servicesHero.png"
           alt="286 Hygiene cleaning team delivering services"
           overlayClassName="bg-[linear-gradient(90deg,_rgba(37,168,201,0.76)_0%,_rgba(37,168,201,0.62)_45%,_rgba(37,168,201,0.32)_100%)]"
         />

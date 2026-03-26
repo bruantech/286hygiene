@@ -108,7 +108,7 @@ export default function CleaningProcessSection() {
                 type="button"
                 onClick={() => setActiveStep(index)}
                 className={[
-                  "rounded-xl px-6 py-4 text-sm font-extrabold shadow-[0_14px_28px_rgba(16,82,97,0.08)] transition",
+                  "rounded-xl cursor-pointer px-6 py-4 text-sm font-extrabold s transition",
                   isActive
                     ? "bg-[#0b8768] text-white shadow-[0_18px_34px_rgba(11,135,104,0.26)]"
                     : "bg-white text-[#17222b] hover:bg-[#f6fbfb]",

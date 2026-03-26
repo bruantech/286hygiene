@@ -20,13 +20,13 @@ export const services = [
     alt: "Post construction cleaning facility",
     href: "/services/post-construction-cleaning"
   },
-  {
-    title: "Deep Cleaning",
-    text: "Restoring shared work environments with detailed, routine care.",
-    image: "/images/service 1.png",
-    alt: "Deep cleaning supplies ready for use",
-    href: "#contact"
-  },
+  // {
+  //   title: "Deep Cleaning",
+  //   text: "Restoring shared work environments with detailed, routine care.",
+  //   image: "/images/service 1.png",
+  //   alt: "Deep cleaning supplies ready for use",
+  //   href: "#contact"
+  // },
   {
     title: "Upholstery Cleaning",
     text: "Refresh sofas, fabric seats, and soft furnishings with careful stain treatment.",

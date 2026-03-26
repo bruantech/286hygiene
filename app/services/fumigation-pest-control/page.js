@@ -21,11 +21,16 @@ export default function FumigationPestControlPage() {
         <PageHero
           title="Fumigation & Pest Control"
           animatedTitlePrefix=""
-          animatedTitleWords={["Fumigation", "Pest Control", "Rodent Control", "Insect Protection"]}
+          animatedTitleWords={[
+            "Fumigation",
+            "Pest Control",
+            "Rodent Control",
+            "Insect Protection",
+          ]}
           animatedTitleSuffix=""
           animatedTitleInterval={2600}
           animatedTitleClassName="text-[#d9f7ff]"
-          backgroundImage="/images/heroimg.png"
+          backgroundImage="/images/pestControlHero.png"
           alt="Fumigation and pest control team at work"
           overlayClassName="bg-[linear-gradient(90deg,_rgba(37,168,201,0.78)_0%,_rgba(37,168,201,0.64)_45%,_rgba(37,168,201,0.34)_100%)]"
           contentClassName="absolute inset-y-0 left-0 flex max-w-[34rem] items-center px-6 sm:px-10"

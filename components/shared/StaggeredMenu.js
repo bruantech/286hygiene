@@ -69,6 +69,15 @@ export default function StaggeredMenu({
   const [isReady, setIsReady] = useState(false);
   const [expandedItems, setExpandedItems] = useState({});
 
+  const isActivePath = useCallback(
+    (href) => {
+      if (!href) return false;
+      if (href === "/") return pathname === "/";
+      return pathname === href || pathname.startsWith(`${href}/`);
+    },
+    [pathname]
+  );
+
   const openRef = useRef(false);
   const panelRef = useRef(null);
   const preLayersRef = useRef(null);
@@ -477,9 +486,18 @@ export default function StaggeredMenu({
                       <MenuItemLink
                         item={item}
                         onClick={closeMenu}
-                        className="sm-panel-item relative inline-block flex-1 text-4xl font-semibold uppercase leading-none tracking-[-0.04em] text-[#17222b] no-underline transition-colors duration-150 ease-linear py-2"
+                        className={`sm-panel-item relative inline-block flex-1 text-4xl font-semibold uppercase leading-none tracking-[-0.04em] no-underline transition-colors duration-150 ease-linear py-2 ${
+                          isActivePath(item.link) ? "is-active text-[var(--sm-accent)]" : "text-[#17222b]"
+                        }`}
+                        aria-current={isActivePath(item.link) ? "page" : undefined}
                       >
-                        <span className="sm-panel-itemLabel inline-block">{item.label}</span>
+                        <span
+                          className={`sm-panel-itemLabel inline-block ${
+                            isActivePath(item.link) ? "text-[var(--sm-accent)]" : ""
+                          }`}
+                        >
+                          {item.label}
+                        </span>
                       </MenuItemLink>
 
                       {item.children?.length ? (
@@ -507,9 +525,16 @@ export default function StaggeredMenu({
                             <MenuItemLink
                               item={child}
                               onClick={closeMenu}
-                              className="sm-submenu-link inline-block py-2 text-base font-medium text-[#4b6670] no-underline transition-colors duration-150 ease-linear"
+                              className={`sm-submenu-link inline-block py-2 text-base font-medium no-underline transition-colors duration-150 ease-linear ${
+                                isActivePath(child.link) ? "is-active text-[var(--sm-accent)]" : "text-[#4b6670]"
+                              }`}
+                              aria-current={isActivePath(child.link) ? "page" : undefined}
                             >
-                              {child.label}
+                              <span
+                                className={isActivePath(child.link) ? "text-[var(--sm-accent)]" : undefined}
+                              >
+                                {child.label}
+                              </span>
                             </MenuItemLink>
                           </li>
                         ))}
@@ -618,6 +643,19 @@ export default function StaggeredMenu({
           letter-spacing: 0.08em;
           color: var(--sm-accent);
           opacity: var(--sm-num-opacity, 0);
+        }
+
+        .sm-scope .sm-panel-item.is-active::before,
+        .sm-scope .sm-submenu-link.is-active::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 50%;
+          height: 0.55rem;
+          width: 0.55rem;
+          border-radius: 9999px;
+          background: var(--sm-accent);
+          transform: translate(-1rem, -50%);
         }
 
         .sm-scope .sm-submenu {

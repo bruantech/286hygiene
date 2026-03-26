@@ -2,10 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { primaryNavItems, siteConfig } from "../../lib/siteData";
 import StaggeredMenu from "./StaggeredMenu";
 
 export default function Header() {
+  const pathname = usePathname();
+
+  const isActivePath = (href) => {
+    if (!href) return false;
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   const mobileMenuItems = primaryNavItems.flatMap((item) => {
     if (!item.children) {
       return [
@@ -70,7 +79,12 @@ export default function Header() {
               key={item.label}
               href={item.href}
               scroll={false}
-              className="transition hover:text-[#0a8199]"
+              aria-current={isActivePath(item.href) ? "page" : undefined}
+              className={`border-b-2 px-1 py-1 transition ${
+                isActivePath(item.href)
+                  ? "border-[#0b8768] text-[#0b8768]"
+                  : "border-transparent hover:border-[#9bd7c8] hover:text-[#0a8199]"
+              }`}
             >
               {item.label}
             </Link>
