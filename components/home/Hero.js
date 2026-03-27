@@ -63,7 +63,7 @@ export default function Hero() {
 
           <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-4">
             <motion.a
-              href="#contact"
+              href="/contact"
               whileHover={scaleHover.scale}
               whileTap={buttonTap.scale}
               transition={scaleHover.transition}

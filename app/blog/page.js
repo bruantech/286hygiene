@@ -23,7 +23,7 @@ export default function BlogPage() {
           animatedTitleWords={["Blog", "Insights", "Guides", "Tips"]}
           animatedTitleInterval={2800}
           animatedTitleClassName="text-white"
-          backgroundImage="/images/heroimg.png"
+          backgroundImage="/images/blogHero.png"
           alt="Minimal interior representing the 286 blog"
           sectionClassName="px-4 pb-10 pt-4 sm:px-6 lg:px-8"
           imageClassName="h-[11rem] w-full object-cover sm:h-[14rem] lg:h-[16rem]"

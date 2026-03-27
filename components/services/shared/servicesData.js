@@ -9,14 +9,14 @@ export const services = [
   {
     title: "Commercial Cleaning",
     text: "Maintaining peak productivity through pristine workspaces.",
-    image: "/images/service 2.png",
+    image: "/images/commercialimg.webp",
     alt: "Commercial cleaning service facility",
     href: "/services/commercial-cleaning"
   },
   {
     title: "Post Construction Cleaning",
     text: "Specialized heavy-duty sanitation for complex facilities.",
-    image: "/images/service 3.png",
+    image: "/images/postConstructionImg.webp",
     alt: "Post construction cleaning facility",
     href: "/services/post-construction-cleaning"
   },
@@ -30,35 +30,35 @@ export const services = [
   {
     title: "Upholstery Cleaning",
     text: "Refresh sofas, fabric seats, and soft furnishings with careful stain treatment.",
-    image: "/images/service 2.png",
+    image: "/images/upholsteryImg.webp",
     alt: "Upholstery cleaning equipment in use",
     href: "/services/upholstery-cleaning"
   },
   {
     title: "Rug & Carpet Cleaning",
     text: "Specialized extraction and odor removal for rugs, carpets, and soft flooring.",
-    image: "/images/service 3.png",
+    image: "/images/rugAndCarpetImg.webp",
     alt: "Carpet cleaning appliance on a soft floor",
     href: "/services/rug-carpet-cleaning"
   },
   {
     title: "Mattress Cleaning",
     text: "Deep sanitization for healthier sleep spaces and fresher bedroom environments.",
-    image: "/images/service 1.png",
+    image: "/images/mattressImg.webp",
     alt: "Mattress cleaning service close-up",
     href: "/services/mattress-cleaning"
   },
   {
     title: "Fumigation & Pest Control",
     text: "Targeted pest management solutions for homes, offices, and commercial properties.",
-    image: "/images/service 2.png",
+    image: "/images/funmigatioAndPestControlImg.webp",
     alt: "Fumigation service being carried out indoors",
     href: "/services/fumigation-pest-control"
   },
   {
     title: "Pressure Washing",
     text: "Powerful exterior cleaning for walls, driveways, compounds, and hard surfaces.",
-    image: "/images/service 3.png",
+    image: "/images/pressureWashingImg.webp",
     alt: "Pressure washing or intensive surface cleaning service",
     href: "/services/pressure-washing"
   }

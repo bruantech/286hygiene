@@ -54,11 +54,8 @@ export default function MattressCleaningServicesSection() {
         <div className="relative mx-auto grid max-w-6xl  py-12 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
           <article className=" border border-white/80 bg-white/92 px-6 py-10 shadow-[0_24px_60px_rgba(78,129,141,0.08)] sm:px-8 sm:py-12">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0b8768]">
-              Better Sleep Hygiene
+              YOU NEED US
             </p>
-            <h2 className="mt-4 max-w-136 text-4xl font-black leading-tight text-[#17222b] sm:text-5xl">
-              Mattress cleaning that restores freshness where it matters most
-            </h2>
             <p className="mt-6 max-w-160 text-base leading-8 text-[#677c85]">
               Your mattress can harbor dust, bacteria, sweat, and allergens that
               affect your health and sleep quality. At 286 Hygiene, we provide
@@ -85,7 +82,7 @@ export default function MattressCleaningServicesSection() {
           <article className="relative overflow-hidden  shadow-[0_24px_60px_rgba(78,129,141,0.14)]">
             <div className="relative h-full min-h-84">
               <Image
-                src="/images/service 3.png"
+                src="/images/mattressImg.webp"
                 alt="Professional mattress cleaning service"
                 fill
                 sizes="(max-width: 1024px) 100vw, 42vw"

@@ -30,7 +30,7 @@ export default async function ContactPage({ searchParams }) {
           animatedTitleClassName="text-[#d9f7ff]"
           extraText="Experience clinical excellence. Reach out to our 
           team to design a bespoke sanitation protocol for your space."
-          backgroundImage="/images/heroimg.png"
+          backgroundImage="/images/contactHero.png"
           alt="Commercial cleaning team at work"
           overlayClassName="bg-[linear-gradient(90deg,_rgba(37,168,201,0.78)_0%,_rgba(37,168,201,0.64)_45%,_rgba(37,168,201,0.34)_100%)]"
           sectionClassName="px-4 pb-10 pt-8 sm:px-6 lg:px-8"

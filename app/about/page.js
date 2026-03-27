@@ -25,7 +25,7 @@ export default function AboutPage() {
           animatedTitleSuffix="spaces every day."
           animatedTitleInterval={2600}
           animatedTitleClassName="text-[#d8eef6]"
-          backgroundImage="/images/heroimg.png"
+          backgroundImage="/images/aboutHero.png"
           alt="286 Hygiene cleaning team in action"
           overlayClassName="bg-[linear-gradient(90deg,_rgba(8,58,53,0.64)_0%,_rgba(8,58,53,0.34)_42%,_rgba(8,58,53,0.1)_100%)]"
           imageClassName="h-[15rem] w-full object-cover sm:h-[20rem] lg:h-[23rem]"

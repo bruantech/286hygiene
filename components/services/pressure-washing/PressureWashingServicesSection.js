@@ -8,31 +8,31 @@ import { fadeOnScroll, staggerContainer, fadeInUp } from "../../../lib/animation
 const serviceItems = [
   {
     title: "Parking Areas",
-    image: "/images/service 3.png",
+    image: "/images/pressure1.webp",
     alt: "Pressure washing a driveway",
     className: "sm:col-span-2 lg:col-span-2 lg:row-span-2"
   },
   {
     title: "Walkways/Driveways",
-    image: "/images/service 1.png",
+    image: "/images/pressure2.webp",
     alt: "Pressure washing a walkway",
     className: "lg:col-span-1 lg:row-span-1"
   },
   {
     title: "Compound floors",
-    image: "/images/team.png",
+    image: "/images/pressure3.webp",
     alt: "Pressure washing compound floors",
     className: "lg:col-span-1 lg:row-span-1"
   },
   {
     title: "Outdoor tiles",
-    image: "/images/service 2.png",
+    image: "/images/pressureWashingImg.webp",
     alt: "Pressure washing outdoor tiles",
     className: "lg:col-span-1 lg:row-span-1"
   },
   {
     title: "Walls and fences",
-    image: "/images/heroimg.png",
+    image: "/images/pressure4.png",
     alt: "Pressure washing a wall or fence",
     className: "lg:col-span-1 lg:row-span-1"
   },
@@ -54,11 +54,9 @@ export default function PressureWashingServicesSection() {
         <div className="relative mx-auto grid max-w-6xl  py-20 lg:grid-cols-[1.08fr_0.92fr]">
           <article className=" border border-white/70 bg-white/92 px-6 py-10 shadow-[0_22px_50px_rgba(78,129,141,0.08)] sm:px-8">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#0b8768]">
-              Exterior Renewal
+              YOU NEED US
             </p>
-            <h2 className="mt-4 text-4xl font-black leading-tight text-[#17222b] sm:text-5xl">
-              Pressure washing that restores hard surfaces beautifully
-            </h2>
+            
             <p className="mt-6 max-w-[40rem] text-base leading-8 text-[#677c85]">
               Over time, outdoor surfaces accumulate dirt, stains, mold, and
               grime that regular cleaning cannot remove. Our professional
@@ -90,9 +88,9 @@ export default function PressureWashingServicesSection() {
           <article className="relative overflow-hidden bg-[#5cae9c] px-6 py-10 text-white shadow-[0_22px_50px_rgba(78,129,141,0.12)] sm:px-8">
             <div
               className="absolute inset-0 bg-cover bg-center opacity-32"
-              style={{ backgroundImage: "url('/images/service 3.png')" }}
+              style={{ backgroundImage: "url('/images/pressureWashingImg.webp')" }}
             />
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,_rgba(94,174,156,0.9)_0%,_rgba(135,196,184,0.78)_100%)]" />
+            
             <div className="relative">
               <p className="text-sm font-semibold uppercase tracking-[0.26em] text-white/80">
                 What We Cover

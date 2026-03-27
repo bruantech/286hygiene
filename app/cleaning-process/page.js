@@ -24,7 +24,7 @@ export default function CleaningProcessPage() {
           animatedTitleSuffix="Process"
           animatedTitleInterval={2600}
           animatedTitleClassName="text-[#cbeff6]"
-          backgroundImage="/images/heroimg.png"
+          backgroundImage="/images/processHero.png"
           alt="286 Hygiene team preparing a professional cleaning visit"
           overlayClassName="bg-[linear-gradient(110deg,rgba(7,28,39,0.82)_0%,rgba(7,28,39,0.58)_38%,rgba(11,135,104,0.22)_100%)]"
           extraText="Every visit follows a clear workflow, from site assessment to final sign-off, so the result feels consistent, hygienic, and ready for use."

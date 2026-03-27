@@ -86,7 +86,7 @@ export default function WhyChooseSection() {
           <div className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(180deg,_rgba(243,241,209,0.98)_0%,_rgba(201,229,191,0.94)_100%)] p-5 shadow-[0_30px_65px_rgba(4,71,96,0.32)]">
             <div className="relative h-[25rem] overflow-hidden rounded-[1.6rem] bg-[linear-gradient(180deg,_rgba(255,255,255,0.28)_0%,_rgba(127,197,172,0.2)_100%)]">
               <Image
-                src="/images/team.png"
+                src="/images/teamImg.webp"
                 alt="286 Hygiene team"
                 fill
                 className="object-cover"

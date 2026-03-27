@@ -14,35 +14,35 @@ import { fadeOnScroll, staggerContainer, fadeInUp } from "../../../lib/animation
 const serviceItems = [
   {
     title: "Deep cleaning of sofas and chairs",
-    image: "/images/service 1.png",
+    image: "/images/upholstery2.webp",
     alt: "Deep cleaning upholstery on a sofa",
     icon: Armchair,
     className: "sm:col-span-2 lg:col-span-3 lg:row-span-2"
   },
   {
     title: "Stain removal",
-    image: "/images/service 3.png",
+    image: "/images/upholstery3.webp",
     alt: "Treatment for upholstery stains",
     icon: Sparkles,
     className: "lg:col-span-3 lg:row-span-1"
   },
   {
     title: "Odor elimination",
-    image: "/images/heroimg.png",
+    image: "/images/upholstery4.webp",
     alt: "Fresh and odor-free upholstered seating",
     icon: Wind,
     className: "lg:col-span-3 lg:row-span-1"
   },
   {
     title: "Dust and allergen removal",
-    image: "/images/service 2.png",
+    image: "/images/upholstery5.webp",
     alt: "Removal of dust and allergens from upholstery",
     icon: ShieldCheck,
     className: "sm:col-span-2 lg:col-span-2 lg:row-span-1"
   },
   {
     title: "Fabric-safe cleaning methods",
-    image: "/images/team.png",
+    image: "/images/upholstery6.webp",
     alt: "Gentle cleaning methods for fabric upholstery",
     icon: Leaf,
     className: "sm:col-span-2 lg:col-span-4 lg:row-span-1"
@@ -67,7 +67,7 @@ export default function UpholsteryCleaningServicesSection() {
           <article className=" border border-white/80 bg-white/90 px-6 py-10 shadow-[0_24px_60px_rgba(78,129,141,0.1)] backdrop-blur sm:px-8 sm:py-12">
           
             <h2 className="mt-4 max-w-[36rem] text-4xl font-black leading-tight text-[#17222b] sm:text-5xl">
-              Clean, refreshed furniture that feels better to live with
+              YOU NEED US
             </h2>
             <p className="mt-6 max-w-[38rem] text-base leading-8 text-[#667a84]">
               Sofas, chairs, and upholstered seating absorb dust, spills, body
@@ -82,7 +82,7 @@ export default function UpholsteryCleaningServicesSection() {
           <article className="relative overflow-hidden  bg-[#1d8fae] shadow-[0_24px_60px_rgba(60,119,134,0.18)]">
             <div className="relative min-h-[21rem] h-full">
               <Image
-                src="/images/service 2.png"
+                src="/images/upholstery1.webp"
                 alt="Professional upholstery cleaning in progress"
                 fill
                 sizes="(max-width: 1024px) 100vw, 42vw"
@@ -92,7 +92,7 @@ export default function UpholsteryCleaningServicesSection() {
 
               <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
                 <div className="inline-flex rounded-full bg-white/14 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/82 backdrop-blur-sm">
-                  Why Clients Book It
+                  Why You Should Book Us
                 </div>
                 <p className="mt-5 max-w-[22rem] text-xl font-semibold leading-9 text-white">
                   Regular upholstery cleaning helps shared spaces look polished
