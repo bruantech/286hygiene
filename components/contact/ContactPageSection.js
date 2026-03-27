@@ -79,10 +79,14 @@ export default function ContactPageSection({
 
   useEffect(() => {
     if (requestedService || requestedMessage) {
-      formSectionRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+      const timer = setTimeout(() => {
+        formSectionRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 100);
+
+      return () => clearTimeout(timer);
     }
   }, [requestedMessage, requestedService]);
 
