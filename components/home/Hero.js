@@ -1,13 +1,38 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { animate, motion, useInView } from "framer-motion";
 import { staggerContainer, fadeInUp, scaleHover, buttonTap } from "../../lib/animations";
 
+function Counter({ from = 0, to, suffix = "", duration = 2 }) {
+  const nodeRef = useRef(null);
+  const inView = useInView(nodeRef, { once: true, amount: 0.5 });
+  
+  useEffect(() => {
+    if (!inView) return;
+    
+    const controls = animate(from, to, {
+      duration,
+      ease: "easeOut",
+      delay: 0.2,
+      onUpdate(value) {
+        if (nodeRef.current) {
+          nodeRef.current.textContent = Math.round(value) + suffix;
+        }
+      },
+    });
+    
+    return () => controls.stop();
+  }, [from, to, suffix, duration, inView]);
+
+  return <span ref={nodeRef}>{from}{suffix}</span>;
+}
+
 const stats = [
-  { value: "10+", label: "Years Experience" },
-  { value: "500+", label: "Projects Done" },
-  { value: "100%", label: "Quality Assurance" }
+  { value: 10, suffix: "+", label: "Years Experience" },
+  { value: 500, suffix: "+", label: "Projects Done" },
+  { value: 100, suffix: "%", label: "Quality Assurance" }
 ];
 
 export default function Hero() {
@@ -57,7 +82,7 @@ export default function Hero() {
                 className="min-w-0 rounded-[18px] border border-white/75 bg-white/85 px-3 py-3 text-left shadow-[0_16px_40px_rgba(44,146,178,0.12)] sm:px-5 sm:py-4"
               >
                 <div className="text-lg font-extrabold text-[#22a9cb] sm:text-2xl">
-                  {stat.value}
+                  <Counter to={stat.value} suffix={stat.suffix} duration={2} />
                 </div>
                 <div className="mt-1 text-[10px] font-medium uppercase leading-4 tracking-[0.08em] text-[#7d949b] sm:text-xs sm:tracking-[0.12em]">
                   {stat.label}

@@ -2,7 +2,7 @@
 
 import { ClipboardCheck, Search, ShieldCheck, Sparkles } from "lucide-react";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { fadeOnScroll, staggerContainer, fadeInUp } from "../../lib/animations";
 
 const steps = [
@@ -130,34 +130,43 @@ export default function CleaningProcessSection() {
           })}
         </motion.div>
 
-        <motion.article variants={fadeInUp} className="mt-12 hidden overflow-hidden bg-white shadow-[0_28px_70px_rgba(73,121,135,0.2)] md:block">
-          <div className="grid lg:grid-cols-[1.2fr_0.88fr]">
-            <div className="px-8 py-10 sm:px-10 sm:py-12 lg:px-10 lg:py-14">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#edf5f2] text-[#0b8768]">
-                <Icon
-                  className="h-6 w-6"
-                  strokeWidth={2.2}
-                  aria-hidden="true"
-                />
+        <motion.article variants={fadeInUp} className="mt-12 hidden overflow-hidden bg-white shadow-[0_28px_70px_rgba(73,121,135,0.2)] md:block relative">
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={activeStep}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="grid lg:grid-cols-[1.2fr_0.88fr]"
+            >
+              <div className="px-8 py-10 sm:px-10 sm:py-12 lg:px-10 lg:py-14">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#edf5f2] text-[#0b8768]">
+                  <Icon
+                    className="h-6 w-6"
+                    strokeWidth={2.2}
+                    aria-hidden="true"
+                  />
+                </div>
+
+                <h2 className="mt-8 text-4xl font-black text-[#17233b] sm:text-5xl">
+                  {step.title}
+                </h2>
+                <p className="mt-6 max-w-120 text-lg leading-9 text-[#516770]">
+                  {step.text}
+                </p>
               </div>
 
-              <h2 className="mt-8 text-4xl font-black text-[#17233b] sm:text-5xl">
-                {step.title}
-              </h2>
-              <p className="mt-6 max-w-120 text-lg leading-9 text-[#516770]">
-                {step.text}
-              </p>
-            </div>
-
-            <div className="relative min-h-[24rem] lg:min-h-[34rem]">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url('${step.image}')` }}
-                role="img"
-                aria-label={step.alt}
-              />
-            </div>
-          </div>
+              <div className="relative min-h-[24rem] lg:min-h-[34rem]">
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url('${step.image}')` }}
+                  role="img"
+                  aria-label={step.alt}
+                />
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </motion.article>
       </div>
     </motion.section>

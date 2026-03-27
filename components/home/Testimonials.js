@@ -21,8 +21,48 @@ const testimonials = [
   }
 ];
 
+const starVariants = {
+  hidden: { opacity: 0, scale: 0, rotate: -60 },
+  show: { 
+    opacity: 1, 
+    scale: 1, 
+    rotate: 0,
+    transition: { type: "spring", stiffness: 350, damping: 20 }
+  }
+};
+
+const starsContainerVariants = {
+  hidden: { opacity: 1 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.4 // Small delay so the card fades in first
+    }
+  }
+};
+
 function Stars() {
-  return <div className="text-sm tracking-[0.3em] text-[#0b8768]">★★★★★</div>;
+  return (
+    <motion.div 
+      variants={starsContainerVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      className="flex gap-[0.2em] text-[1.1rem] text-[#0b8768]"
+    >
+      {[1, 2, 3, 4, 5].map((i) => (
+        <motion.span 
+          key={i} 
+          variants={starVariants} 
+          whileHover={{ scale: 1.3, rotate: 10, color: "#14b992" }}
+          className="origin-center cursor-default"
+        >
+          ★
+        </motion.span>
+      ))}
+    </motion.div>
+  );
 }
 
 export default function Testimonials() {

@@ -1,107 +1,140 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useCallback, useEffect, useState, useRef } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { motion, useInView } from "framer-motion";
+import { fadeOnScroll } from "../../lib/animations";
 import ServiceCard from "../services/shared/ServiceCard";
 import { services } from "../services/shared/servicesData";
-import { motion } from "framer-motion";
-import { fadeOnScroll, staggerContainer, fadeInUp } from "../../lib/animations";
 
 export default function ServicesSection() {
-  const [startIndex, setStartIndex] = useState(0);
-  const featuredServices = services.slice(0, 6);
-  const maxStartIndex = Math.max(0, featuredServices.length - 3);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef);
 
-  const visibleServices = useMemo(
-    () => featuredServices.slice(startIndex, startIndex + 3),
-    [featuredServices, startIndex]
-  );
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "center",
+    skipSnaps: false,
+    duration: 35,
+  });
 
-  function goPrevious() {
-    setStartIndex((current) => (current === 0 ? maxStartIndex : current - 1));
-  }
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [slideDelay, setSlideDelay] = useState(3000); 
 
-  function goNext() {
-    setStartIndex((current) => (current === maxStartIndex ? 0 : current + 1));
-  }
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
+
+  
+  useEffect(() => {
+    if (!emblaApi || !isInView) return;
+    const timer = setInterval(() => {
+      emblaApi.scrollNext();
+    }, slideDelay);
+    
+    return () => clearInterval(timer);
+  }, [emblaApi, slideDelay, isInView]);
 
   return (
     <motion.section
+      ref={sectionRef}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.15 }}
       variants={fadeOnScroll}
       id="services"
-      className="relative  overflow-hidden px-4 py-18 sm:px-6 lg:px-8"
+      className="relative overflow-hidden pt-18 pb-20"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(97,210,233,0.23),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(214,245,222,0.9),_transparent_28%),linear-gradient(180deg,_#effbff_0%,_#eaf8f6_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(97,210,233,0.23),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(214,245,222,0.9),_transparent_28%),linear-gradient(180deg,_#effbff_0%,_#eaf8f6_100%)] z-0" />
 
-      <div className="relative mx-auto max-w-[1220px]">
-        <div>
+      <div className="relative z-10 w-full">
+      
+        <div className="mx-auto max-w-[1300px] px-4 sm:px-6 lg:px-8 mb-4 lg:mb-8">
           <p className="text-sm font-light uppercase tracking-[0.4em] text-[#617b84]">
             Our Services
           </p>
-          <h2 className="mt-7 max-w-[34rem] text-5xl font-light leading-[1.1] tracking-[-0.03em] text-[#13233b] sm:text-6xl lg:text-[4rem]">
-            Elevated Hygiene For Every Space
-          </h2>
-        </div>
-
-        <div className="relative py-6 lg:pt-12 lg:pb-6">
-          <button
-            type="button"
-            onClick={goPrevious}
-            aria-label="Previous services"
-            className="absolute left-[-1.5rem] top-1/2 z-20 hidden h-13 w-13 -translate-y-1/2 items-center justify-center rounded-full border border-white/70 bg-white/85 text-[#2fb4da] shadow-[0_12px_24px_rgba(47,180,218,0.16)] transition hover:bg-white xl:flex"
-          >
-            <ChevronLeft className="h-6 w-6" strokeWidth={2.4} aria-hidden="true" />
-          </button>
-
-          <button
-            type="button"
-            onClick={goNext}
-            aria-label="Next services"
-            className="absolute right-[-1.5rem] top-1/2 z-20 hidden h-16 w-16 -translate-y-1/2 items-center justify-center rounded-full bg-[#2fb4da] text-white shadow-[0_16px_28px_rgba(47,180,218,0.32)] transition hover:bg-[#1ea6cd] xl:flex"
-          >
-            <ChevronRight className="h-7 w-7" strokeWidth={2.4} aria-hidden="true" />
-          </button>
-
-          <div className="overflow-hidden pt-4 pb-10 lg:pt-8">
-            <motion.div variants={staggerContainer} className="grid gap-8 lg:grid-cols-[0.9fr_1fr_0.9fr] lg:items-start">
-              {visibleServices.map((service, index) => (
-                <motion.div variants={fadeInUp} key={`${service.title}-${startIndex}-${index}`}>
-                  <ServiceCard
-                    service={service}
-                    titleAs="h3"
-                    className={index === 1 ? "lg:-translate-y-3 lg:scale-[1.02]" : "lg:translate-y-6"}
-                    imageClassName={
-                      index === 1
-                        ? "h-[18rem] sm:h-[20rem] lg:h-[22rem]"
-                        : "h-[15rem] sm:h-[17rem] lg:h-[19rem]"
-                    }
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
+          <div className="mt-7">
+            <h2 className="max-w-[42rem] text-5xl font-light leading-[1.1] tracking-[-0.03em] text-[#13233b] sm:text-6xl lg:text-[4.5rem]">
+              Elevated Hygiene For Every Space
+            </h2>
           </div>
         </div>
 
-        <div className="mt-8 hidden items-center justify-center gap-3 md:flex xl:hidden">
-          <button
-            type="button"
-            onClick={goPrevious}
-            aria-label="Previous services"
-            className="flex h-14 w-14 items-center justify-center rounded-full border border-white/70 bg-white/85 text-[#2fb4da] shadow-[0_10px_20px_rgba(47,180,218,0.14)]"
+       
+        <div 
+          className="relative mx-auto max-w-[1400px]"
+          onMouseEnter={() => setSlideDelay(4000)} 
+          onMouseLeave={() => setSlideDelay(3000)} 
+        >
+         
+          <Link
+            href="/services"
+            className="group absolute right-8 xl:right-[4rem] top-[40%] z-20 hidden h-16 w-16 -translate-y-1/2 items-center justify-center rounded-full bg-[#2fb4da] px-0 text-white shadow-[0_16px_28px_rgba(47,180,218,0.32)] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:w-[136px] hover:bg-[#1ea6cd] lg:flex"
+            aria-label="View all services"
           >
-            <ChevronLeft className="h-6 w-6" strokeWidth={2.4} aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            onClick={goNext}
-            aria-label="Next services"
-            className="flex h-14 w-14 items-center justify-center rounded-full bg-[#2fb4da] text-white shadow-[0_14px_26px_rgba(47,180,218,0.28)]"
+            <div className="flex items-center justify-center">
+              <span className="w-0 overflow-hidden whitespace-nowrap text-[15px] font-semibold tracking-wide transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:w-[72px] group-hover:pl-1 text-white">
+                View All
+              </span>
+              <ChevronRight className="h-7 w-7 shrink-0 text-white" strokeWidth={2.4} aria-hidden="true" />
+            </div>
+          </Link>
+
+          <div className="w-full xl:pl-[max(1rem,calc((100vw-1400px)/2))] xl:pr-[max(1rem,calc((100vw-1400px)/2))] container mx-auto px-0 md:px-4 mt-6">
+            <div className="embla overflow-hidden cursor-grab active:cursor-grabbing px-2" ref={emblaRef}>
+              <div className="embla__container flex touch-pan-y pt-4 pb-14 items-center -ml-5 sm:-ml-6 lg:-ml-8">
+                {services.map((service, index) => {
+                  const isSelected = index === selectedIndex;
+                  
+                  return (
+                    <div
+                      key={service.title}
+                      className="embla__slide min-w-0 flex-[0_0_88%] sm:flex-[0_0_55%] lg:flex-[0_0_36%] xl:flex-[0_0_31%] pl-5 sm:pl-6 lg:pl-8"
+                    >
+                      <div 
+                        className={`h-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+                          isSelected 
+                            ? "scale-[1.01] sm:scale-[1.03] opacity-100 lg:-translate-y-2 z-10 relative" 
+                            : "scale-95 opacity-50 sm:opacity-60 hover:opacity-100 relative z-0"
+                        }`}
+                      >
+                        <ServiceCard
+                          service={service}
+                          titleAs="h3"
+                          className={`h-full border-[1.5px] transition-all duration-700 ease-out ${
+                            isSelected ? 'border-white bg-white/95 shadow-[0_25px_50px_rgba(47,180,218,0.18)]' : 'border-white/40 bg-white/70 shadow-none'
+                          }`}
+                          imageClassName={`transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+                            isSelected ? "h-[18rem] sm:h-[22rem] lg:h-[22rem]" : "h-[16rem] sm:h-[18rem] lg:h-[20rem]"
+                          }`}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-2 flex items-center justify-center lg:hidden px-4 relative z-10 w-full mb-8">
+          <Link
+            href="/services"
+            className="group flex h-14 w-full max-w-[22rem] items-center justify-center rounded-full bg-[#2fb4da] text-white shadow-[0_14px_26px_rgba(47,180,218,0.28)] transition-colors hover:bg-[#1ea6cd]"
           >
-            <ChevronRight className="h-6 w-6" strokeWidth={2.4} aria-hidden="true" />
-          </button>
+            <span className="mr-3 font-semibold tracking-wide text-white">View All Services</span>
+            <ChevronRight className="h-6 text-white w-6 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </motion.section>

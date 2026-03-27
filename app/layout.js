@@ -1,14 +1,13 @@
 import "./globals.css";
 import { Suspense } from "react";
-import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import ScrollManager from "../components/shared/ScrollManager";
 import {
   getLocalBusinessJsonLd,
   getPageMetadata,
   getWebsiteJsonLd,
   siteConfig
 } from "../lib/siteData";
-import ScrollManager from "../components/shared/ScrollManager";
 
 export const metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -59,19 +58,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Script id="disable-scroll-restoration" strategy="beforeInteractive">
-          {`
-            if ("scrollRestoration" in window.history) {
-              window.history.scrollRestoration = "manual";
-            }
-            window.scrollTo(0, 0);
-            document.documentElement.scrollTop = 0;
-            document.body.scrollTop = 0;
-          `}
-        </Script>
-        <Suspense fallback={null}>
-          <ScrollManager />
-        </Suspense>
+        <ScrollManager />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -90,3 +77,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+

@@ -1,12 +1,14 @@
 "use client";
 
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 function scrollToTop() {
-  window.scrollTo(0, 0);
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
+  setTimeout(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, 0);
 }
 
 export default function ScrollManager() {
@@ -14,7 +16,7 @@ export default function ScrollManager() {
   const searchParams = useSearchParams();
   const search = searchParams.toString();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
