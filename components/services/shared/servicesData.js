@@ -51,7 +51,7 @@ export const services = [
   {
     title: "Fumigation & Pest Control",
     text: "Targeted pest management solutions for homes, offices, and commercial properties.",
-    image: "/images/funmigatioAndPestControlImg.webp",
+    image: "/images/funmigationImage.png",
     alt: "Fumigation service being carried out indoors",
     href: "/services/fumigation-pest-control"
   },

@@ -7,6 +7,7 @@ import Footer from "../components/shared/Footer";
 import Header from "../components/shared/Header";
 import HowServicesWork from "../components/shared/HowServicesWork";
 import { getPageMetadata } from "../lib/siteData";
+import InstagramSection from "../components/shared/InstagramSection";
 
 export const metadata = getPageMetadata({
   title: "Professional Cleaning Services in Lagos",
@@ -25,6 +26,7 @@ export default function HomePage() {
         <WhyChooseSection />
         <HowServicesWork />
         <Testimonials />
+        <InstagramSection />
         <CallToAction />
       </main>
       <Footer />

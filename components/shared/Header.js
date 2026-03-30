@@ -46,16 +46,16 @@ export default function Header() {
 
   const mobileQuickLinks = [
     {
-      label: "Call",
-      link: `tel:${siteConfig.phone}`
+      label: "WhatsApp",
+      link: siteConfig.whatsappUrl
     },
     {
-      label: "Email",
-      link: `mailto:${siteConfig.email}`
+      label: "TikTok",
+      link: siteConfig.tiktokUrl
     },
     {
-      label: "Contact",
-      link: "/contact"
+      label: "Instagram",
+      link: siteConfig.instagramUrl
     }
   ];
 

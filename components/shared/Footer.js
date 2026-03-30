@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Instagram, Mail, Phone } from "lucide-react";
+import { Instagram, Mail, Phone, MessageCircle, Video } from "lucide-react";
 import { footerLinkGroups, siteConfig } from "../../lib/siteData";
 import { motion } from "framer-motion";
 import { staggerContainer, fadeOnScroll } from "../../lib/animations";
@@ -19,6 +19,14 @@ export default function Footer() {
 
     if (label === siteConfig.phoneDisplay) {
       return <Phone className="h-4 w-4" strokeWidth={2} aria-hidden="true" />;
+    }
+
+    if (label === "WhatsApp") {
+      return <MessageCircle className="h-4 w-4" strokeWidth={2} aria-hidden="true" />;
+    }
+
+    if (label === "TikTok") {
+      return <Video className="h-4 w-4" strokeWidth={2} aria-hidden="true" />;
     }
 
     return null;

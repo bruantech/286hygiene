@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowUpRight, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Instagram, Mail, MapPin, Phone, MessageCircle, Video } from "lucide-react";
 import { getBookingMessage } from "../../lib/contactBooking";
 import { siteConfig } from "../../lib/siteData";
 import { motion } from "framer-motion";
@@ -35,6 +35,20 @@ const contactItems = [
     detail: "Follow our latest work and updates",
     href: siteConfig.instagramUrl,
     icon: Instagram
+  },
+  {
+    title: "WhatsApp",
+    text: siteConfig.phoneDisplay,
+    detail: "Message us directly",
+    href: siteConfig.whatsappUrl,
+    icon: MessageCircle
+  },
+  {
+    title: "TikTok",
+    text: "@286_hygiene",
+    detail: "Watch our cleaning transformations",
+    href: siteConfig.tiktokUrl,
+    icon: Video
   }
 ];
 
@@ -161,7 +175,7 @@ export default function ContactPageSection({
               })}
             </motion.div>
 
-            <motion.article variants={fadeInUp} className="overflow-hidden rounded-[1.35rem] bg-[#cfe2de] shadow-[0_22px_50px_rgba(65,122,128,0.18)]">
+            {/* <motion.article variants={fadeInUp} className="overflow-hidden rounded-[1.35rem] bg-[#cfe2de] shadow-[0_22px_50px_rgba(65,122,128,0.18)]">
               <div className="flex min-h-64 items-center justify-center bg-[radial-gradient(circle_at_50%_42%,rgba(255,255,255,0.42),transparent_14%),linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(166,195,191,0.36)_100%)]">
                 <MapPin
                   className="h-28 w-28 text-[#90a7a4]"
@@ -178,7 +192,7 @@ export default function ContactPageSection({
                   <ArrowUpRight className="h-4 w-4" strokeWidth={2.1} aria-hidden="true" />
                 </a>
               </div>
-            </motion.article>
+            </motion.article> */}
           </div>
 
           <motion.article variants={fadeInUp}
