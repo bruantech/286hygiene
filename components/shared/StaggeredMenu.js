@@ -562,9 +562,10 @@ export default function StaggeredMenu({
                       <MenuItemLink
                         item={item}
                         onClick={closeMenu}
-                        className="sm-socials-link inline-block py-[2px] text-base font-medium text-[#4b6670] no-underline transition-[color,opacity] duration-300 ease-linear"
+                        className="sm-socials-link inline-flex items-center gap-2 py-[2px] text-base font-medium text-[#4b6670] no-underline transition-[color,opacity] duration-300 ease-linear"
                       >
-                        {item.label}
+                        {item.icon && <item.icon className="h-4 w-4" aria-hidden="true" />}
+                        <span>{item.label}</span>
                       </MenuItemLink>
                     </li>
                   ))}

@@ -7,6 +7,8 @@ import { staggerContainer, fadeInUp } from "../../lib/animations";
 import { usePathname } from "next/navigation";
 import { primaryNavItems, siteConfig } from "../../lib/siteData";
 import StaggeredMenu from "./StaggeredMenu";
+import { Instagram } from "lucide-react";
+import { TikTokIcon, WhatsAppIcon } from "./BrandIcons";
 
 export default function Header() {
   const pathname = usePathname();
@@ -47,15 +49,18 @@ export default function Header() {
   const mobileQuickLinks = [
     {
       label: "WhatsApp",
-      link: siteConfig.whatsappUrl
+      link: siteConfig.whatsappUrl,
+      icon: WhatsAppIcon
     },
     {
       label: "TikTok",
-      link: siteConfig.tiktokUrl
+      link: siteConfig.tiktokUrl,
+      icon: TikTokIcon
     },
     {
       label: "Instagram",
-      link: siteConfig.instagramUrl
+      link: siteConfig.instagramUrl,
+      icon: Instagram
     }
   ];
 
