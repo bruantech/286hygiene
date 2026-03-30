@@ -167,7 +167,7 @@ export default function DashboardPage() {
               </Link>
               <div className="h-6 w-px bg-gray-200" />
               <h1 className="text-2xl font-bold text-[#15232a] tracking-tight">
-                Dashboard <span className="text-[#0b8768]">CMS</span>
+                286 Admin <span className="text-[#0b8768]">Dashboard</span>
               </h1>
             </div>
             
