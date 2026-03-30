@@ -223,7 +223,7 @@ export default function DashboardPage() {
         
         {/* --- BLOGS VIEW --- */}
         {activeTab === "blogs" && (
-          <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-gray-100 p-6 sm:p-10 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <div className="bg-white  shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-gray-100 p-6 sm:p-10 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
               <div>
                 <h2 className="text-3xl font-extrabold text-[#15232a]">Manage Blogs</h2>
@@ -310,7 +310,7 @@ export default function DashboardPage() {
 
         {/* --- MESSAGES VIEW --- */}
         {activeTab === "messages" && (
-           <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-gray-100 p-6 sm:p-10 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+           <div className="bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-gray-100 p-6 sm:p-10 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
                <div>
                  <h2 className="text-3xl font-extrabold text-[#15232a]">Quote Requests</h2>

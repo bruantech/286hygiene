@@ -37,7 +37,7 @@ export default function LoginPage() {
             Dashboard Login
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Sign in to manage your blog posts and read messages
+            Sign in to manage your blog posts and read 
           </p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleLogin}>
