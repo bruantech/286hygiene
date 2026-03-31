@@ -1,23 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../../lib/firebase";
 import { useRouter } from "next/navigation";
-import { Lock, Mail, ArrowRight, ShieldCheck, AlertCircle } from "lucide-react";
+import { Lock, Mail, ArrowRight, ShieldCheck, AlertCircle, CheckCircle, Eye, EyeOff } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
   const [loading, setLoading] = useState(false);
+  const [resetLoading, setResetLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
+    setSuccessMsg("");
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -27,6 +31,27 @@ export default function LoginPage() {
       console.error(err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleForgotPassword = async () => {
+    if (!email) {
+      setError("Please enter your email below and click 'Forgot Password?' to receive a reset link.");
+      return;
+    }
+    
+    setResetLoading(true);
+    setError("");
+    setSuccessMsg("");
+
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setSuccessMsg("Password reset email sent! Check your inbox.");
+    } catch (err) {
+      setError("Failed to send reset email. Ensure your email is correct.");
+      console.error(err);
+    } finally {
+      setResetLoading(false);
     }
   };
 
@@ -61,12 +86,9 @@ export default function LoginPage() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className="relative w-full max-w-[420px]"
       >
-        {/* Main Login Card */}
         <div className="backdrop-blur-xl bg-white/5 border border-white/10 p-8 sm:p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
-          {/* Top glowing line */}
           <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#2cf0d5] to-transparent opacity-50" />
 
-          {/* Header */}
           <div className="text-center mb-10">
             <motion.div
               initial={{ scale: 0.5, opacity: 0 }}
@@ -97,6 +119,17 @@ export default function LoginPage() {
                   <p>{error}</p>
                 </motion.div>
               )}
+              {successMsg && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0, y: -10 }}
+                  animate={{ opacity: 1, height: "auto", y: 0 }}
+                  exit={{ opacity: 0, height: 0, y: -10 }}
+                  className="bg-[#2cf0d5]/10 border border-[#2cf0d5]/20 text-[#2cf0d5] p-4 rounded-xl text-sm flex items-center gap-3"
+                >
+                  <CheckCircle className="w-5 h-5 shrink-0" />
+                  <p>{successMsg}</p>
+                </motion.div>
+              )}
             </AnimatePresence>
 
             <div className="space-y-4">
@@ -123,13 +156,31 @@ export default function LoginPage() {
                 <input
                   id="password"
                   name="password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   required
-                  className="block w-full pl-12 pr-4 py-3.5 bg-[#15232a]/50 border border-white/5 rounded-xl text-white placeholder-[#61757e] focus:outline-none focus:border-[#2cf0d5]/50 focus:bg-[#15232a]/80 focus:ring-1 focus:ring-[#2cf0d5]/50 transition-all sm:text-sm"
+                  className="block w-full pl-12 pr-12 py-3.5 bg-[#15232a]/50 border border-white/5 rounded-xl text-white placeholder-[#61757e] focus:outline-none focus:border-[#2cf0d5]/50 focus:bg-[#15232a]/80 focus:ring-1 focus:ring-[#2cf0d5]/50 transition-all sm:text-sm"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-[#61757e] hover:text-[#2cf0d5] transition-colors focus:outline-none"
+                >
+                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                </button>
+              </div>
+
+              <div className="flex justify-end mt-2">
+                <button
+                  type="button"
+                  onClick={handleForgotPassword}
+                  disabled={resetLoading}
+                  className="text-sm font-medium text-[#2cf0d5] hover:text-[#7be2ef] transition-colors disabled:opacity-50"
+                >
+                  {resetLoading ? "Sending..." : "Forgot Password?"}
+                </button>
               </div>
             </div>
 
@@ -138,7 +189,7 @@ export default function LoginPage() {
               whileTap={{ scale: 0.99 }}
               type="submit"
               disabled={loading}
-              className="relative w-full flex items-center justify-center gap-2 py-4 px-4 mt-2 rounded-xl text-[#0a1115] font-bold bg-gradient-to-r from-[#2cf0d5] to-[#7be2ef] hover:opacity-90 transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(44,240,213,0.2)] hover:shadow-[0_0_30px_rgba(44,240,213,0.4)] overflow-hidden"
+              className="relative cursor-pointer w-full flex items-center justify-center gap-2 py-4 px-4 mt-2 rounded-xl text-[#0a1115] font-bold bg-gradient-to-r from-[#2cf0d5] to-[#7be2ef] hover:opacity-90 transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(44,240,213,0.2)] hover:shadow-[0_0_30px_rgba(44,240,213,0.4)] overflow-hidden"
             >
               {loading ? (
                 <>

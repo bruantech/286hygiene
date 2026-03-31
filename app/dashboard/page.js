@@ -15,9 +15,10 @@ import {
   doc,
   serverTimestamp,
 } from "firebase/firestore";
-import { Plus, Edit2, Trash2, LogOut, Loader2, ArrowLeft, Mail, MessageSquare, BookOpen, CheckCircle, Circle, Phone, MapPin } from "lucide-react";
+import { Plus, Edit2, Trash2, LogOut, Loader2, ArrowLeft, Mail, MessageSquare, BookOpen, CheckCircle, Circle, Phone, MapPin, Key } from "lucide-react";
 import BlogModal from "../../components/dashboard/BlogModal";
-import { signOut } from "firebase/auth";
+import ChangePasswordModal from "../../components/dashboard/ChangePasswordModal";
+import { signOut, updatePassword } from "firebase/auth";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -33,6 +34,7 @@ export default function DashboardPage() {
   const [loadingBlogs, setLoadingBlogs] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingBlog, setEditingBlog] = useState(null);
+  const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
 
   // Messages State
   const [messages, setMessages] = useState([]);
@@ -72,6 +74,24 @@ export default function DashboardPage() {
   const handleLogout = async () => {
     await signOut(auth);
     router.push("/dashboard/login");
+  };
+
+  const handlePasswordSubmit = async (newPassword) => {
+    try {
+      setSavingId("password");
+      await updatePassword(auth.currentUser, newPassword);
+      alert("Password updated successfully!");
+      setIsPasswordModalOpen(false);
+    } catch (error) {
+      console.error("Error updating password:", error);
+      if (error.code === "auth/requires-recent-login") {
+        alert("For your security, changing your password requires a recent login. Please log out and log back in, then try again.");
+      } else {
+        alert("Failed to update password: " + error.message);
+      }
+    } finally {
+      setSavingId(null);
+    }
   };
 
   // --- BLOG ACTIONS ---
@@ -168,7 +188,14 @@ export default function DashboardPage() {
               </h1>
             </div>
             
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
+              <button
+                onClick={() => setIsPasswordModalOpen(true)}
+                className="p-2 sm:px-4 sm:py-2 text-[#0b8768] hover:bg-[#0b8768]/10 rounded-xl transition-colors flex items-center gap-2 font-medium"
+              >
+                <Key className="w-5 h-5" />
+                <span className="hidden sm:inline">Change Password</span>
+              </button>
               <button
                 onClick={handleLogout}
                 className="p-2 sm:px-4 sm:py-2 text-red-500 hover:bg-red-50 rounded-xl transition-colors flex items-center gap-2 font-medium"
@@ -396,6 +423,13 @@ export default function DashboardPage() {
       </main>
 
       <BlogModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={handleModalSubmit} editingBlog={editingBlog} isLoading={savingId !== null} />
+      
+      <ChangePasswordModal 
+        isOpen={isPasswordModalOpen} 
+        onClose={() => setIsPasswordModalOpen(false)} 
+        onSubmit={handlePasswordSubmit} 
+        isLoading={savingId === "password"} 
+      />
     </div>
   );
 }
