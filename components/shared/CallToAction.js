@@ -23,7 +23,7 @@ export default function CallToAction() {
           variants={fadeInUp}
           whileHover={{ scale: 1.05 }}
           whileTap={buttonTap.scale}
-          href="#contact"
+          href="/contact"
           className="mt-10 inline-flex rounded-full bg-[#0b8768] px-9 py-4 text-sm font-semibold text-white! shadow-[0_14px_30px_rgba(11,135,104,0.28)] transition hover:bg-[#0a785e]"
         >
           Get Your Free Quote
