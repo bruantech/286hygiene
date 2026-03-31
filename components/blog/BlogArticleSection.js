@@ -35,10 +35,54 @@ export default function BlogArticleSection() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center py-32 px-4">
-        <Loader2 className="w-8 h-8 animate-spin text-[#17222b]" />
-        <span className="ml-3 font-medium text-[#17222b]">Loading the latest insights...</span>
-      </div>
+      <section className="px-4 py-10 sm:px-6 lg:px-8 mt-10">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[12rem_minmax(0,1fr)]">
+          {/* Sidebar Skeleton */}
+          <aside className="space-y-12 animate-pulse">
+            <div>
+              <div className="h-3 w-16 bg-gray-200 rounded-full mb-8"></div>
+              <div className="mt-5 space-y-6">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div key={i} className="flex gap-3 items-center">
+                    <div className="h-4 w-full bg-gray-100 rounded-md"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </aside>
+
+          {/* Main Content Skeleton */}
+          <article className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_10rem] animate-pulse">
+            <div>
+              {/* Title Section */}
+              <div className="space-y-4 mb-10">
+                <div className="h-12 bg-gray-200 rounded-xl w-3/4"></div>
+                <div className="h-12 bg-gray-200 rounded-xl w-2/4"></div>
+              </div>
+
+              {/* Paragraphs */}
+              <div className="mt-10 space-y-5">
+                <div className="h-4 bg-gray-100 rounded w-full"></div>
+                <div className="h-4 bg-gray-100 rounded w-full"></div>
+                <div className="h-4 bg-gray-100 rounded w-11/12"></div>
+                <div className="h-4 bg-gray-100 rounded w-4/5 pt-4"></div>
+                <div className="h-4 bg-gray-100 rounded w-full"></div>
+                <div className="h-4 bg-gray-100 rounded w-5/6"></div>
+              </div>
+
+              {/* Image Skeleton */}
+              <div className="mt-12 relative overflow-hidden rounded-4xl bg-gray-200 min-h-[300px] sm:min-h-[500px] w-full"></div>
+            </div>
+
+            {/* Author Skeleton */}
+            <div className="lg:pt-2 flex flex-col items-end">
+              <div className="h-3 w-20 bg-gray-200 rounded-full mb-4"></div>
+              <div className="h-5 w-28 bg-gray-200 rounded-md mb-2"></div>
+              <div className="h-3 w-24 bg-gray-100 rounded-full"></div>
+            </div>
+          </article>
+        </div>
+      </section>
     );
   }
 
