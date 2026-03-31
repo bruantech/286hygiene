@@ -46,13 +46,13 @@ export default function Footer() {
         className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.2fr_1fr_1fr_1fr]"
       >
         <motion.div variants={fadeOnScroll}>
-          <div className="flex h-16 w-16 items-center justify-center">
+          <div className="flex h-20 w-30 items-center justify-center">
             <Image
               src="/images/logo.png"
               alt="286 Hygiene logo"
               width={500}
               height={620}
-              className="h-auto w-full rounded-[2.2rem] rounded-tr-none object-cover rotate-2"
+              className="h-auto w-full  object-cover "
               priority
             />
           </div>

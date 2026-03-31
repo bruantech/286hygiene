@@ -4,8 +4,9 @@ import { useState } from "react";
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../../lib/firebase";
 import { useRouter } from "next/navigation";
-import { Lock, Mail, ArrowRight, ShieldCheck, AlertCircle, CheckCircle, Eye, EyeOff } from "lucide-react";
+import { Lock, Mail, ArrowRight, AlertCircle, CheckCircle, Eye, EyeOff } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -94,9 +95,16 @@ export default function LoginPage() {
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5, type: "spring" }}
-              className="w-16 h-16 bg-gradient-to-br from-[#2cf0d5] to-[#0b8768] rounded-2xl mx-auto flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(44,240,213,0.3)]"
+              className="w-20 h-20 bg-white rounded-2xl mx-auto flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(44,240,213,0.3)] overflow-hidden p-2"
             >
-              <ShieldCheck className="w-8 h-8 text-white" strokeWidth={2} />
+              <Image 
+                src="/images/logo.png" 
+                alt="286 Hygiene Logo" 
+                width={80} 
+                height={80} 
+                className="w-full h-full object-contain"
+                priority
+              />
             </motion.div>
             <h2 className="text-3xl font-bold text-white tracking-tight mb-2">
               Welcome Back

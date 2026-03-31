@@ -73,13 +73,13 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" scroll={false} className="flex items-center gap-3">
-          <div className="flex h-16 w-16 items-center justify-center">
+          <div className="flex h-16 w-20 items-center justify-center">
             <Image
               src="/images/logo.png"
               alt="Cleaning professional wiping a surface"
               width={500}
               height={620}
-              className="h-auto w-full rounded-[2.2rem] rounded-tr-none object-cover rotate-2"
+              className=" object-cover "
               priority
             />
           </div>
