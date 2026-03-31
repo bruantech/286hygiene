@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { staggerContainer, fadeInUp } from "../../lib/animations";
+import { fadeInUp } from "../../lib/animations";
 import { CalendarDays, ShieldCheck, Sparkles, Wrench } from "lucide-react";
 
 const features = [
@@ -53,14 +53,12 @@ export default function WhyChooseSection() {
         className="absolute inset-x-0 bottom-0 top-10 bg-[linear-gradient(180deg,_#35a8ca_0%,_#2db2da_100%)] shadow-[inset_0_18px_30px_rgba(255,255,255,0.08)] [clip-path:none] lg:[clip-path:polygon(0_0,100%_9%,100%_100%,0_100%)]"
       />
       <div className="absolute inset-x-0 bottom-0 top-10 bg-[radial-gradient(circle_at_18%_46%,_rgba(255,255,255,0.14),_transparent_28%),radial-gradient(circle_at_68%_70%,_rgba(255,255,255,0.10),_transparent_24%),radial-gradient(circle_at_50%_100%,_rgba(255,255,255,0.08),_transparent_34%)]" />
-      <motion.div 
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        className="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_0.92fr] lg:items-center"
-      >
-        <div>
+      <div className="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_0.92fr] lg:items-center">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           
           <motion.h2 variants={fadeInUp} className="mt-4 max-w-md text-4xl font-black uppercase leading-tight sm:text-5xl">
             Why choose 286 hygiene
@@ -77,9 +75,12 @@ export default function WhyChooseSection() {
               </motion.div>
             ))}
           </motion.div>
-        </div>
+        </motion.div>
 
         <motion.div 
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
           variants={{
             hidden: { opacity: 0, scale: 0.82, y: 42 },
             show: {
@@ -109,7 +110,7 @@ export default function WhyChooseSection() {
             </div>
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }

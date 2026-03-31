@@ -5,7 +5,6 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { fadeOnScroll } from "../../lib/animations";
 import ServiceCard from "../services/shared/ServiceCard";
 import { services } from "../services/shared/servicesData";
 
@@ -46,12 +45,8 @@ export default function ServicesSection() {
   }, [emblaApi, slideDelay, isInView]);
 
   return (
-    <motion.section
+    <section
       ref={sectionRef}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.15 }}
-      variants={fadeOnScroll}
       id="services"
       className="relative overflow-hidden pt-18 pb-20"
     >
@@ -137,6 +132,6 @@ export default function ServicesSection() {
           </Link>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

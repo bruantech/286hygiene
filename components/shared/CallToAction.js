@@ -1,18 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeOnScroll, fadeInUp, staggerContainer, buttonTap } from "../../lib/animations";
+import { fadeInUp, staggerContainer, buttonTap } from "../../lib/animations";
 
 export default function CallToAction() {
   return (
-    <motion.section 
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.15 }}
-      variants={fadeOnScroll}
-      className="px-4 py-10 sm:px-6 lg:px-8"
-    >
-      <motion.div variants={staggerContainer} className="mx-auto max-w-6xl rounded-[2.2rem] bg-white px-6 py-16 text-center shadow-[0_26px_60px_rgba(55,124,147,0.12)] sm:px-10">
+    <section className="px-4 py-10 sm:px-6 lg:px-8">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="mx-auto max-w-6xl rounded-[2.2rem] bg-white px-6 py-16 text-center shadow-[0_26px_60px_rgba(55,124,147,0.12)] sm:px-10"
+      >
         <motion.h2 variants={fadeInUp} className="text-4xl font-black text-[#17222b] sm:text-6xl">
           Ready for a <span className="text-[#0b8768]">Brighter</span> Space?
         </motion.h2>
@@ -29,6 +29,6 @@ export default function CallToAction() {
           Get Your Free Quote
         </motion.a>
       </motion.div>
-    </motion.section>
+    </section>
   );
 }

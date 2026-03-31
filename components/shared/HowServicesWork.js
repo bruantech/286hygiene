@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeOnScroll, staggerContainer, fadeInUp } from "../../lib/animations";
+import { staggerContainer, fadeInUp } from "../../lib/animations";
 
 const steps = [
   {
@@ -28,13 +28,7 @@ const steps = [
 
 export default function HowServicesWork() {
   return (
-    <motion.section 
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.15 }}
-      variants={fadeOnScroll}
-      className="px-4 py-10 sm:px-6 lg:px-8"
-    >
+    <section className="px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl rounded-[2.5rem] px-6 py-16 sm:px-10 lg:px-12">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#0E6A4B]">
@@ -49,7 +43,13 @@ export default function HowServicesWork() {
           </p>
         </div>
 
-        <motion.div variants={staggerContainer} className="mt-14 grid gap-8 lg:grid-cols-4">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          className="mt-14 grid gap-8 lg:grid-cols-4"
+        >
           {steps.map((step, index) => (
             <motion.div variants={fadeInUp} key={step.number} className="relative text-center">
               {index < steps.length - 1 ? (
@@ -83,6 +83,6 @@ export default function HowServicesWork() {
           ))}
         </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 }
