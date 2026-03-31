@@ -120,6 +120,7 @@ export default function Hero() {
               height={620}
               className="h-auto w-[420px] rounded-[2.2rem] rounded-tr-none object-cover rotate-2"
               priority
+              sizes="(min-width: 1024px) 420px, 100vw"
             />
           </div>
         </motion.div>
