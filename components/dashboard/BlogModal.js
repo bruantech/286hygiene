@@ -113,13 +113,12 @@ export default function BlogModal({ isOpen, onClose, onSubmit, editingBlog = nul
                   <div className="space-y-2">
                     <label className="text-sm font-semibold text-gray-700">Cover Image URL</label>
                     <input
-                      required
                       type="url"
                       name="imageUrl"
                       value={formData.imageUrl}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#2cf0d5] focus:border-transparent outline-none transition-all placeholder:text-gray-400"
-                      placeholder="https://example.com/image.jpg"
+                      placeholder="https://example.com/image.jpg (Optional)"
                     />
                   </div>
                 </div>

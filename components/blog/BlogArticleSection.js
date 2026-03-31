@@ -12,6 +12,8 @@ export default function BlogArticleSection() {
   const [topics, setTopics] = useState([]);
   const [activeTopicIndex, setActiveTopicIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
   // Fetch blogs from Firebase
   useEffect(() => {
@@ -97,6 +99,11 @@ export default function BlogArticleSection() {
 
   const activeTopic = topics[activeTopicIndex];
 
+  // Pagination logic
+  const totalPages = Math.ceil(topics.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const displayedTopics = topics.slice(startIndex, startIndex + itemsPerPage);
+
   // Helper to split text area content into paragraphs
   const paragraphs = activeTopic.content 
     ? activeTopic.content.split("\n").filter(p => p.trim() !== "")
@@ -116,9 +123,10 @@ export default function BlogArticleSection() {
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-[#8a9ca4]">
               Topics
             </p>
-            <div className="mt-5 space-y-5">
-              {topics.map((topic, index) => {
-                const isActive = index === activeTopicIndex;
+            <div className="mt-5 space-y-5 h-[50vh] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+              {displayedTopics.map((topic, index) => {
+                const absoluteIndex = startIndex + index;
+                const isActive = absoluteIndex === activeTopicIndex;
 
                 return (
                   <div key={topic.id} className="flex gap-3">
@@ -130,7 +138,7 @@ export default function BlogArticleSection() {
                     />
                     <button
                       type="button"
-                      onClick={() => setActiveTopicIndex(index)}
+                      onClick={() => setActiveTopicIndex(absoluteIndex)}
                       className={[
                         "text-left text-sm cursor-pointer leading-6 transition line-clamp-2",
                         isActive
@@ -144,6 +152,39 @@ export default function BlogArticleSection() {
                 );
               })}
             </div>
+
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+              <div className="mt-8 flex items-center justify-between border-t border-[#e2e8f0] pt-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const newPage = Math.max(currentPage - 1, 1);
+                    setCurrentPage(newPage);
+                    setActiveTopicIndex((newPage - 1) * itemsPerPage);
+                  }}
+                  disabled={currentPage === 1}
+                  className="text-xs font-semibold uppercase tracking-[0.1em] text-[#61757e] hover:text-[#17222b] disabled:opacity-30 disabled:cursor-not-allowed transition"
+                >
+                  Prev
+                </button>
+                <span className="text-xs font-medium text-[#8a9ca4]">
+                  {currentPage} / {totalPages}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const newPage = Math.min(currentPage + 1, totalPages);
+                    setCurrentPage(newPage);
+                    setActiveTopicIndex((newPage - 1) * itemsPerPage);
+                  }}
+                  disabled={currentPage === totalPages}
+                  className="text-xs font-semibold uppercase tracking-[0.1em] text-[#61757e] hover:text-[#17222b] disabled:opacity-30 disabled:cursor-not-allowed transition"
+                >
+                  Next
+                </button>
+              </div>
+            )}
           </div>
         </aside>
 

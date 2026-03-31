@@ -41,14 +41,12 @@ export default function DashboardPage() {
   // Global Saving state (to prevent double-clicks)
   const [savingId, setSavingId] = useState(null);
 
-  // Auth Protection
   useEffect(() => {
     if (!authLoading && !user) {
       router.push("/dashboard/login");
     }
   }, [user, authLoading, router]);
 
-  // Fetch blogs realtime
   useEffect(() => {
     if (!user) return;
     const qBlogs = query(collection(db, "blogs"), orderBy("date", "desc"));
@@ -59,7 +57,6 @@ export default function DashboardPage() {
     return () => unsubBlogs();
   }, [user]);
 
-  // Fetch messages realtime
   useEffect(() => {
     if (!user) return;
     const qMessages = query(collection(db, "messages"), orderBy("createdAt", "desc"));
@@ -188,7 +185,7 @@ export default function DashboardPage() {
           <nav className="flex space-x-8 -mb-px">
             <button
               onClick={() => setActiveTab("blogs")}
-              className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm flex items-center gap-2 ${
+              className={`whitespace-nowrap py-4  cursor-pointer px-1 border-b-2 font-medium text-sm flex items-center gap-2 ${
                 activeTab === "blogs"
                   ? "border-[#0b8768] text-[#0b8768]"
                   : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
@@ -200,7 +197,7 @@ export default function DashboardPage() {
             
             <button
               onClick={() => setActiveTab("messages")}
-              className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm flex items-center gap-2 ${
+              className={`whitespace-nowrap py-4  cursor-pointer px-1 border-b-2 font-medium text-sm flex items-center gap-2 ${
                 activeTab === "messages"
                   ? "border-[#0b8768] text-[#0b8768]"
                   : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
@@ -231,7 +228,7 @@ export default function DashboardPage() {
               </div>
               <button
                 onClick={() => handleOpenBlogModal()}
-                className="flex items-center gap-2 px-6 py-3.5 bg-[#0b8768] text-white font-bold rounded-2xl hover:shadow-lg hover:-translate-y-0.5 transition-all group"
+                className="flex cursor-pointer items-center gap-2 px-6 py-3.5 bg-[#0b8768] text-white font-bold rounded-2xl hover:shadow-lg hover:-translate-y-0.5 transition-all group"
               >
                 <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300" />
                 Add New Blog
@@ -247,7 +244,7 @@ export default function DashboardPage() {
                         <th scope="col" className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider w-[40%]">Blog Details</th>
                         <th scope="col" className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider min-w-[120px]">Author</th>
                         <th scope="col" className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider min-w-[120px]">Date</th>
-                        <th scope="col" className="relative px-6 py-4"><span className="sr-only">Actions</span></th>
+                        <th scope="col" className="relative  px-6 py-4"><span className="sr-only">Actions</span></th>
                       </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-50">
@@ -288,7 +285,7 @@ export default function DashboardPage() {
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{blog.date || "Unknown"}</td>
                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                              <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                              <div className="flex items-center justify-end gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
                                 <button onClick={() => handleOpenBlogModal(blog)} disabled={savingId === blog.id} className="text-[#0b8768] hover:bg-emerald-50 p-2 rounded-lg transition-colors">
                                   <Edit2 className="w-4 h-4" />
                                 </button>
