@@ -51,7 +51,18 @@ export default function Hero() {
         className="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:items-center"
       >
         <div className="max-w-xl pt-4 lg:pt-10">
-          <motion.h1 variants={fadeInUp} className="max-w-lg text-3xl font-black uppercase leading-[0.95] tracking-tight text-[#27a8c9] sm:text-5xl lg:text-4xl">
+          <motion.h1 
+            variants={{
+              hidden: { opacity: 0, scale: 0.6, y: 30 },
+              show: { 
+                opacity: 1, 
+                scale: 1, 
+                y: 0,
+                transition: { type: "spring", stiffness: 80, damping: 10, mass: 1 }
+              }
+            }} 
+            className="max-w-lg text-3xl font-black uppercase leading-[0.95] tracking-tight text-[#27a8c9] sm:text-5xl lg:text-4xl"
+          >
             Professional cleaning &amp; hygiene services in Nigeria
           </motion.h1>
           <motion.p variants={fadeInUp} className="mt-5 max-w-md text-base leading-7 text-[#4d6771]">
@@ -82,7 +93,7 @@ export default function Hero() {
                 className="min-w-0 rounded-[18px] border border-white/75 bg-white/85 px-3 py-3 text-left shadow-[0_16px_40px_rgba(44,146,178,0.12)] sm:px-5 sm:py-4"
               >
                 <div className="text-lg font-extrabold text-[#22a9cb] sm:text-2xl">
-                  <Counter to={stat.value} suffix={stat.suffix} duration={2} />
+                  <Counter to={stat.value} suffix={stat.suffix} duration={1} />
                 </div>
                 <div className="mt-1 text-[10px] font-medium uppercase leading-4 tracking-[0.08em] text-[#7d949b] sm:text-xs sm:tracking-[0.12em]">
                   {stat.label}
@@ -95,7 +106,7 @@ export default function Hero() {
         <motion.div 
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          transition={{ duration: 9.0, ease: [0.16, 1, 0.3, 1], delay: 0.0 }}
           className="relative mx-auto hidden w-full max-w-[30rem] lg:block"
         >
           <div className="absolute -bottom-8 -right-4 h-24 w-24 rounded-full bg-[#f6d8d5]" />
