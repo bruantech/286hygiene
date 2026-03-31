@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { staggerContainer, fadeInUp, fadeOnScroll } from "../../lib/animations";
+import { staggerContainer, fadeInUp } from "../../lib/animations";
 import { CalendarDays, ShieldCheck, Sparkles, Wrench } from "lucide-react";
 
 const features = [
@@ -80,7 +80,21 @@ export default function WhyChooseSection() {
         </div>
 
         <motion.div 
-          variants={fadeOnScroll}
+          variants={{
+            hidden: { opacity: 0, scale: 0.82, y: 42 },
+            show: {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              transition: {
+                type: "spring",
+                stiffness: 120,
+                damping: 14,
+                mass: 0.9,
+                delay: 0.12
+              }
+            }
+          }}
           className="mx-auto w-full max-w-[27rem]"
         >
           <div className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(180deg,_rgba(243,241,209,0.98)_0%,_rgba(201,229,191,0.94)_100%)] p-5 shadow-[0_30px_65px_rgba(4,71,96,0.32)]">
