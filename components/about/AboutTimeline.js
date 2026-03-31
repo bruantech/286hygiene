@@ -10,7 +10,7 @@ const timelineItems = [
     eyebrow: "Our story",
     title: "WHO WE ARE",
     text: "286 Hygiene is a professional cleaning and hygiene service company committed to creating clean, safe, and healthy environment. We provide cleaning services for residential homes, offices, commercial facilities, and construction sites. Our team is trained to deliver efficient, detailed cleaning using modern equipment and safe hygiene practices.",
-    image: "/images/about1.png",
+    image: "/images/about1.webp",
     alt: "286 Hygiene team members holding cleaning supplies",
     icon: Sparkles,
     align: "left",

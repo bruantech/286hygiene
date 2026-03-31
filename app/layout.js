@@ -2,6 +2,7 @@ import "./globals.css";
 import { Suspense } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import ScrollManager from "../components/shared/ScrollManager";
+import ShadowLoader from "../components/shared/ShadowLoader";
 import {
   getLocalBusinessJsonLd,
   getPageMetadata,
@@ -58,7 +59,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Suspense fallback={null}>
+        <Suspense fallback={<ShadowLoader />}>
           <ScrollManager />
         </Suspense>
         <script
@@ -79,4 +80,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-

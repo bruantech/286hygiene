@@ -24,7 +24,7 @@ export default function CleaningProcessPage() {
           animatedTitleSuffix="Process"
           animatedTitleInterval={2600}
           animatedTitleClassName="text-[#cbeff6]"
-          backgroundImage="/images/processHero.png"
+          backgroundImage="/images/processHero.webp"
           alt="286 Hygiene team preparing a professional cleaning visit"
           overlayClassName="bg-[linear-gradient(110deg,rgba(7,28,39,0.82)_0%,rgba(7,28,39,0.58)_38%,rgba(11,135,104,0.22)_100%)]"
           extraText="Every visit follows a clear workflow, from site assessment to final sign-off, so the result feels consistent, hygienic, and ready for use."
@@ -39,13 +39,15 @@ export default function CleaningProcessPage() {
               </div>
               <h1 className="mt-5 text-4xl font-black leading-[0.95] tracking-tight text-[#15213a] sm:text-5xl">
                 A cleaner process creates
-                <span className="block text-[#0b8768]">more reliable results.</span>
+                <span className="block text-[#0b8768]">
+                  more reliable results.
+                </span>
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#556a74]">
                 We do not approach homes, offices, and specialist hygiene jobs
-                with guesswork. Our team follows a practical step-by-step
-                method that helps us prepare properly, clean thoroughly, and
-                leave every space with a clear standard of finish.
+                with guesswork. Our team follows a practical step-by-step method
+                that helps us prepare properly, clean thoroughly, and leave
+                every space with a clear standard of finish.
               </p>
             </div>
 

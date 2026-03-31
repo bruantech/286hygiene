@@ -10,33 +10,32 @@ const serviceItems = [
     title: "Parking Areas",
     image: "/images/pressure1.webp",
     alt: "Pressure washing a driveway",
-    className: "sm:col-span-2 lg:col-span-2 lg:row-span-2"
+    className: "sm:col-span-2 lg:col-span-2 lg:row-span-2",
   },
   {
     title: "Walkways/Driveways",
     image: "/images/pressure2.webp",
     alt: "Pressure washing a walkway",
-    className: "lg:col-span-1 lg:row-span-1"
+    className: "lg:col-span-1 lg:row-span-1",
   },
   {
     title: "Compound floors",
     image: "/images/pressure3.webp",
     alt: "Pressure washing compound floors",
-    className: "lg:col-span-1 lg:row-span-1"
+    className: "lg:col-span-1 lg:row-span-1",
   },
   {
     title: "Outdoor tiles",
     image: "/images/pressureWashingImg.webp",
     alt: "Pressure washing outdoor tiles",
-    className: "lg:col-span-1 lg:row-span-1"
+    className: "lg:col-span-1 lg:row-span-1",
   },
   {
     title: "Walls and fences",
-    image: "/images/pressure4.png",
+    image: "/images/pressure4.webp",
     alt: "Pressure washing a wall or fence",
-    className: "lg:col-span-1 lg:row-span-1"
+    className: "lg:col-span-1 lg:row-span-1",
   },
- 
 ];
 
 export default function PressureWashingServicesSection() {
