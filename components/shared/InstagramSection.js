@@ -5,6 +5,7 @@ import Script from 'next/script';
 import useEmblaCarousel from "embla-carousel-react";
 import { useInView } from "framer-motion";
 import { Instagram } from 'lucide-react';
+import { siteConfig } from '../../lib/siteData';
 
 export default function InstagramSection() {
   const sectionRef = useRef(null);
@@ -35,11 +36,26 @@ export default function InstagramSection() {
   }, [emblaApi, slideDelay, isInView]);
   
   const posts = [
-    { id: '1', url: 'https://www.instagram.com/reel/DAtJHlsMr1e/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' }, 
-    { id: '2', url: 'https://www.instagram.com/reel/DFIE4beM49T/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
-    { id: '3', url: 'https://www.instagram.com/reel/DE9loNZMkrl/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
-    { id: '4', url: 'https://www.instagram.com/reel/DJH4ju7sJQL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
-    { id: '5', url: 'https://www.instagram.com/reel/DE9loNZMkrl/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
+    {
+      id: "1",
+      url: "https://www.instagram.com/reel/DAtJHlsMr1e/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    },
+    {
+      id: "2",
+      url: "https://www.instagram.com/reel/DFIE4beM49T/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    },
+    {
+      id: "3",
+      url: "https://www.instagram.com/reel/DAszdKLMmYE/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==",
+    },
+    {
+      id: "4",
+      url: "https://www.instagram.com/reel/DJH4ju7sJQL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    },
+    {
+      id: "5",
+      url: "https://www.instagram.com/reel/DE9loNZMkrl/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    },
   ];
 
   return (
@@ -91,6 +107,19 @@ export default function InstagramSection() {
               ))}
             </div>
           </div>
+        </div>
+
+        <div className="flex justify-center">
+          <a
+            href={siteConfig.instagramUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Follow 286 Hygiene on Instagram"
+            className="inline-flex !text-white items-center gap-3 rounded-full bg-[#0b8768] px-7 py-3.5 text-sm font-semibold shadow-[0_14px_28px_rgba(11,135,104,0.28)] transition hover:bg-[#0a7a5f]"
+          >
+            <Instagram className="h-4 w-4 text-white" strokeWidth={2.2} aria-hidden="true" />
+            Follow us on Instagram
+          </a>
         </div>
 
       </div>
