@@ -118,7 +118,7 @@ export default function InstagramSection() {
             className="inline-flex !text-white items-center gap-3 rounded-full bg-[#0b8768] px-7 py-3.5 text-sm font-semibold shadow-[0_14px_28px_rgba(11,135,104,0.28)] transition hover:bg-[#0a7a5f]"
           >
             <Instagram className="h-4 w-4 text-white" strokeWidth={2.2} aria-hidden="true" />
-            Follow us on Instagram
+            Follow @286_hygiene
           </a>
         </div>
 
