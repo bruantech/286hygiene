@@ -25,7 +25,7 @@ export default function PostConstructionCleaningPage() {
           animatedTitleSuffix="ready for handover."
           animatedTitleInterval={2500}
           animatedTitleClassName="text-[#d9f7ff]"
-          backgroundImage="/images/constructionHero.webp"
+          backgroundImage="/images/ladder.webp"
           alt="Post construction cleaning team at work"
           overlayClassName="bg-[linear-gradient(90deg,_rgba(37,168,201,0.78)_0%,_rgba(37,168,201,0.64)_45%,_rgba(37,168,201,0.34)_100%)]"
           contentClassName="absolute inset-y-0 left-0 flex max-w-[48rem] items-center px-6 sm:px-10"
